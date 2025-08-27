@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalistheniks Trainer | Animal Movement & Functional Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1200/800?random=1');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ef4444;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .training-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .training-card:hover .training-icon {
+            transform: scale(1.1);
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ef4444;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black/90 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-red-500">
+                    <span class="text-white">ANIMAL</span>MOVEMENT
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-red-500">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-red-500">About</a>
+                    <a href="#training" class="nav-link text-white hover:text-red-500">Training</a>
+                    <a href="#services" class="nav-link text-white hover:text-red-500">Services</a>
+                    <a href="#contact" class="nav-link text-white hover:text-red-500">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-white hover:text-red-500">Home</a>
+                <a href="#about" class="block py-2 text-white hover:text-red-500">About</a>
+                <a href="#training" class="block py-2 text-white hover:text-red-500">Training</a>
+                <a href="#services" class="block py-2 text-white hover:text-red-500">Services</a>
+                <a href="#contact" class="block py-2 text-white hover:text-red-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="text-red-500">ANIMAL</span> 
+                <span class="text-white">MOVEMENT</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">Rediscover your natural movement patterns through animal movement, calisthenics, and qigong</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                    Book a Session
+                </a>
+                <a href="#training" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-red-500">ABOUT</span> 
+                <span class="text-white">ME</span>
+            </h2>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative overflow-hidden rounded-lg shadow-2xl">
+                        <img src="https://picsum.photos/600/800?random=2" 
+                             alt="Personal Trainer" 
+                             class="w-full h-auto transition duration-500 hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4 text-red-500">Reconnecting with Natural Movement</h3>
+                    <p class="text-gray-300 mb-6">
+                        I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations.
+                    </p>
+                                    <div class="mb-6 p-6 bg-gray-900 rounded-lg">
+                    <h4 class="text-xl font-bold mb-3 text-white">Fully Equipped Calisthenics Gym</h4>
+                    <p class="text-gray-300 mb-4">
+                        Train in my dedicated calisthenics space featuring professional-grade equipment for complete bodyweight training:
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-red-500 mr-2"></i>
+                            <span>Parallel Bars</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-red-500 mr-2"></i>
+                            <span>Gymnastic Rings</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-red-500 mr-2"></i>
+                            <span>High-Quality Mats</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-red-500 mr-2"></i>
+                            <span>Pull-Up Stations</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-red-500 mr-2"></i>
+                            <span>Cardio Equipment</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-red-500 mr-2"></i>
+                            <span>Resistance Bands</span>
+                        </div>
+                    </div>
+                </div>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-certificate text-red-500 mr-2"></i>
+                            <span>NASM Certified</span>
+                        </div>
+                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-certificate text-red-500 mr-2"></i>
+                            <span>ISSA Certified</span>
+                        </div>
+                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-heartbeat text-red-500 mr-2"></i>
+                            <span>Holistic Approach</span>
+                        </div>
+                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-users text-red-500 mr-2"></i>
+                            <span>Client Focused</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Methods Section -->
+    <section id="training" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-white">TRAINING</span> 
+                <span class="text-red-500">METHODS</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Animal Movement -->
+                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
+                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-white">Animal Movement</h3>
+                    <p class="text-gray-300">
+                        Reconnect with movement patterns inspired by animals. Improve mobility, coordination, and functional strength through ground-based movements.
+                    </p>
+                </div>
+                
+                <!-- Calisthenics -->
+                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
+                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-white">Calisthenics</h3>
+                    <p class="text-gray-300">
+                        Master your bodyweight through progressive calisthenics training. Develop strength, control, and athleticism using minimal equipment.
+                    </p>
+                </div>
+                
+                <!-- Qigong -->
+                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
+                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-white">Qigong</h3>
+                    <p class="text-gray-300">
+                        Cultivate energy and mindfulness through ancient Chinese movement practices. Improve breathing, posture, and mind-body connection.
+                    </p>
+                </div>
+                
+                <!-- Traditional Training -->
+                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
+                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-white">Traditional Training</h3>
+                    <p class="text-gray-300">
+                        Strength and conditioning through weights and cardio. Customized programs to build muscle, burn fat, and improve cardiovascular health.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section id="services" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-red-500">ADDITIONAL</span> 
+                <span class="text-white">SERVICES</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Massage Therapy -->
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-red-600">
+                    <div class="flex items-center mb-6">
+                        <div class="text-red-500 text-4xl mr-4">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Therapeutic Massage</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Experience therapeutic massage designed to release tension, promote relaxation, and support overall well-being. My massage sessions complement your training or daily life by helping you unwind, reduce stress, and restore balance to body and mind.
+                    </p>
+                </div>
+                
+                <!-- Nutrition Coaching -->
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-red-600">
+                    <div class="flex items-center mb-6">
+                        <div class="text-red-500 text-4xl mr-4">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Nutrition Coaching</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we’ll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                    Book Your Service Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-red-500">GET</span> 
+                <span class="text-white">IN TOUCH</span>
+            </h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                            <select id="subject" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
+                                <option value="">Select an option</option>
+                                <option value="personal">Personal Training</option>
+                                <option value="group">Group Classes</option>
+                                <option value="massage">Massage Therapy</option>
+                                <option value="nutrition">Nutrition Coaching</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-900 p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-red-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Phone</h4>
+                                    <p class="text-gray-300">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-red-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Email</h4>
+                                    <p class="text-gray-300">train@primalmovement.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-red-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Hours</h4>
+                                    <p class="text-gray-300">Monday - Friday: 6am - 8pm</p>
+                                    <p class="text-gray-300">Saturday: 8am - 4pm</p>
+                                    <p class="text-gray-300">Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-red-500 mb-4 md:mb-0">
+                    <span class="text-white">ANIMAL</span>MOVEMENT
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; 2025 Kalistheniks. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Scroll to target
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black');
+                nav.classList.remove('bg-black/90');
+            } else {
+                nav.classList.remove('bg-black');
+                nav.classList.add('bg-black/90');
+            }
+        });
+    </script>
+</body>
+</html>
