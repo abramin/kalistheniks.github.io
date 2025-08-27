@@ -45,6 +45,62 @@
             outline: none;
             box-shadow: 0 0 0 2px #ef4444;
         }
+
+        .language-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .language-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "EN";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input:checked + .slider {
+            background-color: #ef4444;
+        }
+
+        input:checked + .slider:before {
+            content: "ES";
+            transform: translateX(30px);
+        }
+
+        .hidden-language {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -56,30 +112,42 @@
                     <span class="text-white">ANIMAL</span>MOVEMENT
                 </div>
                 
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
+                <div class="flex items-center space-x-6">
+                    <!-- Language Toggle -->
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm hidden md:block" id="language-label-en">English</span>
+                        <label class="language-toggle">
+                            <input type="checkbox" id="language-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="ml-2 text-sm hidden md:block" id="language-label-es">Español</span>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-white focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-red-500">Home</a>
-                    <a href="#about" class="nav-link text-white hover:text-red-500">About</a>
-                    <a href="#training" class="nav-link text-white hover:text-red-500">Training</a>
-                    <a href="#services" class="nav-link text-white hover:text-red-500">Services</a>
-                    <a href="#contact" class="nav-link text-white hover:text-red-500">Contact</a>
+                    <a href="#home" class="nav-link text-white hover:text-red-500" data-en="Home" data-es="Inicio">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-red-500" data-en="About" data-es="Sobre mí">About</a>
+                    <a href="#training" class="nav-link text-white hover:text-red-500" data-en="Training" data-es="Entrenamiento">Training</a>
+                    <a href="#services" class="nav-link text-white hover:text-red-500" data-en="Services" data-es="Servicios">Services</a>
+                    <a href="#contact" class="nav-link text-white hover:text-red-500" data-en="Contact" data-es="Contacto">Contact</a>
                 </div>
             </div>
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="#home" class="block py-2 text-white hover:text-red-500">Home</a>
-                <a href="#about" class="block py-2 text-white hover:text-red-500">About</a>
-                <a href="#training" class="block py-2 text-white hover:text-red-500">Training</a>
-                <a href="#services" class="block py-2 text-white hover:text-red-500">Services</a>
-                <a href="#contact" class="block py-2 text-white hover:text-red-500">Contact</a>
+                <a href="#home" class="block py-2 text-white hover:text-red-500" data-en="Home" data-es="Inicio">Home</a>
+                <a href="#about" class="block py-2 text-white hover:text-red-500" data-en="About" data-es="Sobre mí">About</a>
+                <a href="#training" class="block py-2 text-white hover:text-red-500" data-en="Training" data-es="Entrenamiento">Training</a>
+                <a href="#services" class="block py-2 text-white hover:text-red-500" data-en="Services" data-es="Servicios">Services</a>
+                <a href="#contact" class="block py-2 text-white hover:text-red-500" data-en="Contact" data-es="Contacto">Contact</a>
             </div>
         </div>
     </nav>
@@ -88,17 +156,13 @@
     <section id="home" class="hero-image min-h-screen flex items-center justify-center pt-20">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="text-red-500">ANIMAL</span> 
-                <span class="text-white">MOVEMENT</span>
+                <span class="text-red-500" data-en="ANIMAL" data-es="MOVIMIENTO">ANIMAL</span> 
+                <span class="text-white" data-en="MOVEMENT" data-es="ANIMAL">MOVEMENT</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-300">Rediscover your natural movement patterns through animal movement, calisthenics, and qigong</p>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300" data-en="Rediscover your natural movement patterns through animal movement, calisthenics, and qigong" data-es="Redescubre tus patrones de movimiento naturales a través del movimiento animal, calistenia y qigong">Rediscover your natural movement patterns through animal movement, calisthenics, and qigong</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                    Book a Session
-                </a>
-                <a href="#training" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                    Learn More
-                </a>
+                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book a Session" data-es="Reserva una Sesión">Book a Session</a>
+                <a href="#training" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Learn More" data-es="Saber Más">Learn More</a>
             </div>
         </div>
     </section>
@@ -107,8 +171,8 @@
     <section id="about" class="py-20 bg-black">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-red-500">ABOUT</span> 
-                <span class="text-white">ME</span>
+                <span class="text-red-500" data-en="ABOUT" data-es="SOBRE">ABOUT</span> 
+                <span class="text-white" data-en="ME" data-es="MÍ">ME</span>
             </h2>
             
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -119,64 +183,63 @@
                              class="w-full h-auto transition duration-500 hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     </div>
+                    <!-- Certification Badges -->
+                    <div class="flex justify-center mt-6 space-x-4">
+                        <img src="https://www.nasm.org/images/default-source/default-album/nasm-cpt-badge.png" 
+                             alt="NASM Certified Personal Trainer" 
+                             class="h-16 w-auto">
+                        <img src="https://www.issaonline.com/cdn/shop/files/ISSA_CPT_Badge_2023_200x.png" 
+                             alt="ISSA Certified Personal Trainer" 
+                             class="h-16 w-auto">
+                    </div>
                 </div>
                 
                 <div class="lg:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4 text-red-500">Reconnecting with Natural Movement</h3>
-                    <p class="text-gray-300 mb-6">
+                    <h3 class="text-2xl font-bold mb-4 text-red-500" data-en="Reconnecting with Natural Movement" data-es="Reconectando con el Movimiento Natural">Reconnecting with Natural Movement</h3>
+                    <div class="mb-8">
+                        <p class="text-gray-300 mb-4" data-en="I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health." data-es="Ofrezco una perspectiva única sobre salud y bienestar, moldeada por una trayectoria profesional que me ha llevado por la biología molecular, la ingeniería de software y ahora el entrenamiento físico y nutricional. En el camino, he vivido y trabajado en países de Europa, África, Asia, Oriente Medio y América del Norte, experiencias que me han dado una profunda apreciación de diferentes culturas, estilos de vida y formas de abordar la salud.">
+                            I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health.
+                        </p>
+                        <p class="text-gray-300" data-en="This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives." data-es="Esta diversa experiencia me enseñó a combinar la curiosidad científica con un enfoque práctico y realista. Ya sea en el laboratorio, el mundo tecnológico o el gimnasio, siempre me ha motivado el deseo de entender cómo funcionan las cosas y ayudar a las personas a aplicar ese conocimiento para mejorar sus vidas. Hoy, eso significa apoyar a los clientes en la construcción de hábitos más saludables, sentirse más fuertes en sus cuerpos y encontrar enfoques de fitness y nutrición que realmente se adapten a sus vidas.">
+                            This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives.
+                        </p>
+                    </div>
+                    <p class="text-gray-300 mb-6" data-en="I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop." data-es="Ayudo a las personas a reconectarse con sus cuerpos a través de un enfoque suave y personalizado del movimiento y el fitness. Mi entrenamiento combina prácticas de movimiento consciente con ejercicio funcional moderno, creando un espacio donde la fuerza, la flexibilidad y la facilidad se desarrollan naturalmente.">
                         I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop.
                     </p>
-                    <p class="text-gray-300 mb-6">
+                    <p class="text-gray-300 mb-6" data-en="I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations." data-es="Creo que el fitness debería ser de apoyo, no intimidante. Mis programas se centran en el movimiento con peso corporal, flujos inspirados en animales y trabajo energético consciente para ayudarte a desarrollar fuerza y movilidad a tu propio ritmo, sin la presión de entrenamientos extremos o expectativas poco realistas.">
                         I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations.
                     </p>
-                                    <div class="mb-6 p-6 bg-gray-900 rounded-lg">
-                    <h4 class="text-xl font-bold mb-3 text-white">Fully Equipped Calisthenics Gym</h4>
-                    <p class="text-gray-300 mb-4">
-                        Train in my dedicated calisthenics space featuring professional-grade equipment for complete bodyweight training:
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-red-500 mr-2"></i>
-                            <span>Parallel Bars</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-red-500 mr-2"></i>
-                            <span>Gymnastic Rings</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-red-500 mr-2"></i>
-                            <span>High-Quality Mats</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-red-500 mr-2"></i>
-                            <span>Pull-Up Stations</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-red-500 mr-2"></i>
-                            <span>Cardio Equipment</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-red-500 mr-2"></i>
-                            <span>Resistance Bands</span>
-                        </div>
-                    </div>
-                </div>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
-                            <i class="fas fa-certificate text-red-500 mr-2"></i>
-                            <span>NASM Certified</span>
-                        </div>
-                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
-                            <i class="fas fa-certificate text-red-500 mr-2"></i>
-                            <span>ISSA Certified</span>
-                        </div>
-                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
-                            <i class="fas fa-heartbeat text-red-500 mr-2"></i>
-                            <span>Holistic Approach</span>
-                        </div>
-                        <div class="bg-gray-900 px-4 py-2 rounded-full flex items-center">
-                            <i class="fas fa-users text-red-500 mr-2"></i>
-                            <span>Client Focused</span>
+                    <div class="mb-6 p-6 bg-gray-900 rounded-lg">
+                        <h4 class="text-xl font-bold mb-3 text-white" data-en="Fully Equipped Calisthenics Gym" data-es="Gimnasio de Calistenia Completamente Equipado">Fully Equipped Calisthenics Gym</h4>
+                        <p class="text-gray-300 mb-4" data-en="Train in my dedicated calisthenics space featuring professional-grade equipment for complete bodyweight training:" data-es="Entrena en mi espacio dedicado a la calistenia que cuenta con equipos de grado profesional para un entrenamiento completo con peso corporal:">
+                            Train in my dedicated calisthenics space featuring professional-grade equipment for complete bodyweight training:
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-red-500 mr-2"></i>
+                                <span data-en="Parallel Bars" data-es="Barras Paralelas">Parallel Bars</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-red-500 mr-2"></i>
+                                <span data-en="Gymnastic Rings" data-es="Anillas Gimnásticas">Gymnastic Rings</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-red-500 mr-2"></i>
+                                <span data-en="High-Quality Mats" data-es="Colchonetas de Alta Calidad">High-Quality Mats</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-red-500 mr-2"></i>
+                                <span data-en="Pull-Up Stations" data-es="Estaciones de Dominadas">Pull-Up Stations</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-red-500 mr-2"></i>
+                                <span data-en="Cardio Equipment" data-es="Equipo de Cardio">Cardio Equipment</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-red-500 mr-2"></i>
+                                <span data-en="Resistance Bands" data-es="Bandas de Resistencia">Resistance Bands</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,8 +251,8 @@
     <section id="training" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-white">TRAINING</span> 
-                <span class="text-red-500">METHODS</span>
+                <span class="text-white" data-en="TRAINING" data-es="MÉTODOS DE">TRAINING</span> 
+                <span class="text-red-500" data-en="METHODS" data-es="ENTRENAMIENTO">METHODS</span>
             </h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -198,8 +261,8 @@
                     <div class="training-icon text-red-500 text-5xl mb-6 text-center">
                         <i class="fas fa-paw"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white">Animal Movement</h3>
-                    <p class="text-gray-300">
+                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Animal Movement" data-es="Movimiento Animal">Animal Movement</h3>
+                    <p class="text-gray-300" data-en="Reconnect with movement patterns inspired by animals. Improve mobility, coordination, and functional strength through ground-based movements." data-es="Reconéctate con patrones de movimiento inspirados en animales. Mejora la movilidad, coordinación y fuerza funcional a través de movimientos en el suelo.">
                         Reconnect with movement patterns inspired by animals. Improve mobility, coordination, and functional strength through ground-based movements.
                     </p>
                 </div>
@@ -209,8 +272,8 @@
                     <div class="training-icon text-red-500 text-5xl mb-6 text-center">
                         <i class="fas fa-child"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white">Calisthenics</h3>
-                    <p class="text-gray-300">
+                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Calisthenics" data-es="Calistenia">Calisthenics</h3>
+                    <p class="text-gray-300" data-en="Master your bodyweight through progressive calisthenics training. Develop strength, control, and athleticism using minimal equipment." data-es="Domina tu peso corporal a través del entrenamiento progresivo de calistenia. Desarrolla fuerza, control y atletismo usando equipamiento mínimo.">
                         Master your bodyweight through progressive calisthenics training. Develop strength, control, and athleticism using minimal equipment.
                     </p>
                 </div>
@@ -220,8 +283,8 @@
                     <div class="training-icon text-red-500 text-5xl mb-6 text-center">
                         <i class="fas fa-wind"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white">Qigong</h3>
-                    <p class="text-gray-300">
+                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Qigong" data-es="Qigong">Qigong</h3>
+                    <p class="text-gray-300" data-en="Cultivate energy and mindfulness through ancient Chinese movement practices. Improve breathing, posture, and mind-body connection." data-es="Cultiva energía y atención plena a través de prácticas de movimiento chinas antiguas. Mejora la respiración, postura y conexión mente-cuerpo.">
                         Cultivate energy and mindfulness through ancient Chinese movement practices. Improve breathing, posture, and mind-body connection.
                     </p>
                 </div>
@@ -231,8 +294,8 @@
                     <div class="training-icon text-red-500 text-5xl mb-6 text-center">
                         <i class="fas fa-dumbbell"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white">Traditional Training</h3>
-                    <p class="text-gray-300">
+                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Traditional Training" data-es="Entrenamiento Tradicional">Traditional Training</h3>
+                    <p class="text-gray-300" data-en="Strength and conditioning through weights and cardio. Customized programs to build muscle, burn fat, and improve cardiovascular health." data-es="Fuerza y acondicionamiento con pesas y cardio. Programas personalizados para ganar músculo, quemar grasa y mejorar la salud cardiovascular.">
                         Strength and conditioning through weights and cardio. Customized programs to build muscle, burn fat, and improve cardiovascular health.
                     </p>
                 </div>
@@ -244,8 +307,8 @@
     <section id="services" class="py-20 bg-black">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-red-500">ADDITIONAL</span> 
-                <span class="text-white">SERVICES</span>
+                <span class="text-red-500" data-en="ADDITIONAL" data-es="SERVICIOS">ADDITIONAL</span> 
+                <span class="text-white" data-en="SERVICES" data-es="ADICIONALES">SERVICES</span>
             </h2>
             
             <div class="grid md:grid-cols-2 gap-8">
@@ -255,9 +318,9 @@
                         <div class="text-red-500 text-4xl mr-4">
                             <i class="fas fa-spa"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white">Therapeutic Massage</h3>
+                        <h3 class="text-2xl font-bold text-white" data-en="Therapeutic Massage" data-es="Masaje Terapéutico">Therapeutic Massage</h3>
                     </div>
-                    <p class="text-gray-300 mb-6">
+                    <p class="text-gray-300 mb-6" data-en="Experience therapeutic massage designed to release tension, promote relaxation, and support overall well-being. My massage sessions complement your training or daily life by helping you unwind, reduce stress, and restore balance to body and mind." data-es="Experimenta masajes terapéuticos diseñados para liberar tensiones, promover la relajación y apoyar el bienestar general. Mis sesiones de masaje complementan tu entrenamiento o vida diaria ayudándote a relajarte, reducir el estrés y restaurar el equilibrio entre cuerpo y mente.">
                         Experience therapeutic massage designed to release tension, promote relaxation, and support overall well-being. My massage sessions complement your training or daily life by helping you unwind, reduce stress, and restore balance to body and mind.
                     </p>
                 </div>
@@ -268,17 +331,17 @@
                         <div class="text-red-500 text-4xl mr-4">
                             <i class="fas fa-utensils"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white">Nutrition Coaching</h3>
+                        <h3 class="text-2xl font-bold text-white" data-en="Nutrition Coaching" data-es="Asesoramiento Nutricional">Nutrition Coaching</h3>
                     </div>
-                    <p class="text-gray-300 mb-6">
-                        Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we’ll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits.
+                    <p class="text-gray-300 mb-6" data-en="Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we'll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits." data-es="Asesoramiento nutricional para ayudarte a alcanzar tus objetivos de fitness, ya sea mejorar el rendimiento, gestionar el peso o apoyar el bienestar general. Juntos exploraremos estrategias prácticas basadas en la ciencia que se adapten a tu estilo de vida y preferencias, para que puedas tomar decisiones informadas y construir hábitos duraderos.">
+                        Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we'll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits.
                     </p>
                 </div>
             </div>
             
             <div class="mt-12 text-center">
-                <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-                    Book Your Service Now
+                <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book Your Session Now" data-es="Reserva tu Sesión Ahora">
+                    Book Your Session Now
                 </a>
             </div>
         </div>
@@ -288,37 +351,37 @@
     <section id="contact" class="py-20 bg-black">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-red-500">GET</span> 
-                <span class="text-white">IN TOUCH</span>
+                <span class="text-red-500" data-en="GET" data-es="CONTÁCTANOS">GET</span> 
+                <span class="text-white" data-en="IN TOUCH" data-es="HOY">IN TOUCH</span>
             </h2>
             
             <div class="flex flex-col lg:flex-row gap-12">
                 <div class="lg:w-1/2">
                     <form class="space-y-6">
                         <div>
-                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <label for="name" class="block text-gray-300 mb-2" data-en="Your Name" data-es="Tu Nombre">Your Name</label>
                             <input type="text" id="name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
                         </div>
                         <div>
-                            <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                            <label for="email" class="block text-gray-300 mb-2" data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
                             <input type="email" id="email" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
                         </div>
                         <div>
-                            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                            <label for="subject" class="block text-gray-300 mb-2" data-en="Subject" data-es="Asunto">Subject</label>
                             <select id="subject" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
-                                <option value="">Select an option</option>
-                                <option value="personal">Personal Training</option>
-                                <option value="group">Group Classes</option>
-                                <option value="massage">Massage Therapy</option>
-                                <option value="nutrition">Nutrition Coaching</option>
-                                <option value="other">Other Inquiry</option>
+                                <option value="" data-en="Select an option" data-es="Selecciona una opción">Select an option</option>
+                                <option value="personal" data-en="Personal Training" data-es="Entrenamiento Personal">Personal Training</option>
+                                <option value="group" data-en="Group Classes" data-es="Clases Grupales">Group Classes</option>
+                                <option value="massage" data-en="Massage Therapy" data-es="Terapia de Masaje">Massage Therapy</option>
+                                <option value="nutrition" data-en="Nutrition Coaching" data-es="Asesoramiento Nutricional">Nutrition Coaching</option>
+                                <option value="other" data-en="Other Inquiry" data-es="Otra Consulta">Other Inquiry</option>
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                            <label for="message" class="block text-gray-300 mb-2" data-en="Your Message" data-es="Tu Mensaje">Your Message</label>
                             <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-en="Send Message" data-es="Enviar Mensaje">
                             Send Message
                         </button>
                     </form>
@@ -326,7 +389,7 @@
                 
                 <div class="lg:w-1/2">
                     <div class="bg-gray-900 p-8 rounded-lg h-full">
-                        <h3 class="text-2xl font-bold mb-6 text-white">Contact Information</h3>
+                        <h3 class="text-2xl font-bold mb-6 text-white" data-en="Contact Information" data-es="Información de Contacto">Contact Information</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-start">
@@ -334,8 +397,8 @@
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white">Phone</h4>
-                                    <p class="text-gray-300">+1 (555) 123-4567</p>
+                                    <h4 class="font-bold text-white" data-en="Phone" data-es="Teléfono">Phone</h4>
+                                    <p class="text-gray-300">999999999999</p>
                                 </div>
                             </div>
                             
@@ -344,21 +407,32 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white">Email</h4>
-                                    <p class="text-gray-300">train@primalmovement.com</p>
+                                    <h4 class="font-bold text-white" data-en="Email" data-es="Correo">Email</h4>
+                                    <p class="text-gray-300">test@test.com</p>
                                 </div>
                             </div>
-                            
+
+                            <!-- Location Section -->
                             <div class="flex items-start">
                                 <div class="text-red-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-clock"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white">Hours</h4>
-                                    <p class="text-gray-300">Monday - Friday: 6am - 8pm</p>
-                                    <p class="text-gray-300">Saturday: 8am - 4pm</p>
-                                    <p class="text-gray-300">Sunday: Closed</p>
+                                    <h4 class="font-bold text-white" data-en="Location" data-es="Ubicación">Location</h4>
+                                    <p class="text-gray-300 mb-2" data-en="123 Fitness Street" data-es="Calle Fitness 123">123 Fitness Street</p>
+                                    <p class="text-gray-300" data-en="Madrid, Spain" data-es="Madrid, España">Madrid, Spain</p>
                                 </div>
+                            </div>
+
+                            <!-- Map -->
+                            <div class="mt-6 rounded-lg overflow-hidden">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.430493143111!2d-3.703790424174253!3d40.4167754713326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287e0a1a58ab%3A0x1a1d4b1b0b0b0b0b!2sPuerta%20del%20Sol%2C%20Madrid!5e0!3m2!1sen!2ses!4v1620000000000!5m2!1sen!2ses" 
+                                        width="100%" 
+                                        height="200" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy"
+                                        class="rounded-lg"></iframe>
                             </div>
                         </div>
                     </div>
@@ -375,13 +449,61 @@
                     <span class="text-white">ANIMAL</span>MOVEMENT
                 </div>
                 <div class="text-gray-400 text-sm">
-                    &copy; 2025 Kalistheniks. All rights reserved.
+                    &copy; 2025 Kalistheniks. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Language toggle functionality
+        const languageToggle = document.getElementById('language-toggle');
+        const elements = document.querySelectorAll('[data-en], [data-es]');
+        const languageLabels = {
+            en: document.getElementById('language-label-en'),
+            es: document.getElementById('language-label-es')
+        };
+
+        // Check for saved language preference
+        const currentLanguage = localStorage.getItem('language') || 'en';
+        if (currentLanguage === 'es') {
+            languageToggle.checked = true;
+            toggleLanguage();
+        }
+
+        languageToggle.addEventListener('change', toggleLanguage);
+
+        function toggleLanguage() {
+            const isSpanish = languageToggle.checked;
+            const language = isSpanish ? 'es' : 'en';
+            
+            // Save preference to localStorage
+            localStorage.setItem('language', language);
+            
+            // Update all elements with data attributes
+            elements.forEach(element => {
+                const text = element.getAttribute(`data-${language}`);
+                if (text) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = text;
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+            
+            // Update language labels visibility
+            if (isSpanish) {
+                languageLabels.en.classList.add('hidden');
+                languageLabels.es.classList.remove('hidden');
+            } else {
+                languageLabels.en.classList.remove('hidden');
+                languageLabels.es.classList.add('hidden');
+            }
+        }
+
         // Mobile menu toggle
         document.getElementById('menu-toggle').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
