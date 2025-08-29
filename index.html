@@ -7,11 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1200/800?random=1');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            .hero-slide {
+                transition: opacity 0.5s ease-in-out;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        .slide-indicator {
+            transition: all 0.3s ease;
+        }
+        .slide-indicator.bg-opacity-100 {
+            background-color: rgba(239, 68, 68, 1);
+            transform: scale(1.2);
         }
         
         .nav-link {
@@ -102,13 +108,40 @@
         display: inline-block;
         width: 40px;
         height: 20px;
-        background-size: cover;
+        background-size: contain;
         margin: 0 5px;
     }
 
         .hidden-language {
             display: none;
         }
+    .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25D366;
+        color: #FFF;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .whatsapp-float:hover {
+        background-color: #128C7E;
+        transform: scale(1.1);
+    }
+    
+    .whatsapp-float i {
+        margin-left: 2px; /* Slight visual adjustment for the icon */
+    }
     </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -146,6 +179,7 @@
                     <a href="#training" class="nav-link text-white hover:text-red-500" data-en="Training" data-es="Entrenamiento">Training</a>
                     <a href="#services" class="nav-link text-white hover:text-red-500" data-en="Services" data-es="Servicios">Services</a>
                     <a href="#about" class="nav-link text-white hover:text-red-500" data-en="About" data-es="Sobre mí">About</a>
+                    <a href="#pricing" class="nav-link text-white hover:text-red-500" data-en="Pricing" data-es="Precios">Pricing</a>
                     <a href="#contact" class="nav-link text-white hover:text-red-500" data-en="Contact" data-es="Contacto">Contact</a>
                 </div>
             </div>
@@ -156,25 +190,72 @@
                 <a href="#training" class="block py-2 text-white hover:text-red-500" data-en="Training" data-es="Entrenamiento">Training</a>
                 <a href="#services" class="block py-2 text-white hover:text-red-500" data-en="Services" data-es="Servicios">Services</a>
                 <a href="#about" class="block py-2 text-white hover:text-red-500" data-en="About" data-es="Sobre mí">About</a>
+                <a href="#pricing" class="block py-2 text-white hover:text-red-500" data-en="Pricing" data-es="Precios">Pricing</a>
                 <a href="#contact" class="block py-2 text-white hover:text-red-500" data-en="Contact" data-es="Contacto">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-image min-h-screen flex items-center justify-center pt-20">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="text-red-500" data-en="TRAIN WITH" data-es="ENTRENA CON">TRAIN WITH</span> 
-                <span class="text-white" data-en="ALEX" data-es="ALEX">ALEX</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-300" data-en="Rediscover your natural movement patterns through animal movement, calisthenics, and qigong" data-es="Redescubre tus patrones de movimiento naturales a través del movimiento animal, calistenia y qigong">Rediscover your natural movement patterns through animal movement, calisthenics, and qigong</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book a Session" data-es="Reserva una Sesión">Book a Session</a>
-                <a href="#training" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Learn More" data-es="Saber Más">Learn More</a>
-            </div>
+<section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <!-- Slideshow Container -->
+    <div class="absolute inset-0 z-0">
+        <!-- Slide 1 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-100" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/monkey.png')">
         </div>
-    </section>
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/pullup.png')">
+        </div>
+        <!-- Slide 3 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/dead.png')">
+        </div>
+                <!-- Slide 4 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/pushup.png')">
+        </div>
+                <!-- Slide 5 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/bridge.png')">
+        </div>
+                <!-- Slide 6 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/eagle.png')">
+        </div>
+                        <!-- Slide 7 -->
+        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/rings.png')">
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto px-6 text-center relative z-10">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            <span class="text-red-500" data-en="TRAIN WITH" data-es="ENTRENA CON">TRAIN WITH</span> 
+            <span class="text-white" data-en="ALEX" data-es="ALEX">ALEX</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-300" data-en="Rediscover your natural movement patterns through animal movement, calisthenics, and qigong" data-es="Redescubre tus patrones de movimiento naturales a través del movimiento animal, calistenia y qigong">
+            Rediscover your natural movement patterns through animal movement, calisthenics, and qigong
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book a Session" data-es="Reserva una Sesión">Book a Session</a>
+            <a href="#training" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Learn More" data-es="Saber Más">Learn More</a>
+        </div>
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-10">
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 1"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 2"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 3"></button>
+           <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 4"></button>
+              <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 5"></button>
+                 <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 6"></button>
+                                <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 7"></button>
+    </div>
+</section>
 
     <section class="bg-red-800 text-white py-12">
     <div class="container mx-auto px-6 text-center">
@@ -396,7 +477,208 @@
             </div>
         </div>
     </section>
+    <section id="pricing" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-white" data-en="TRAINING" data-es="ENTRENAMIENTO">TRAINING</span> 
+                <span class="text-red-500" data-en="INVESTMENT" data-es="INVERSIÓN">INVESTMENT</span>
+            </h2>
+            
+            <!-- Monthly Packages -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-center text-white" data-en="Monthly Packages" data-es="Paquetes Mensuales">Monthly Packages</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-black rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-red-600 text-white">
+                                <th class="py-3 px-4 text-left" data-en="Package" data-es="Paquete">Package</th>
+                                <th class="py-3 px-4 text-center" data-en="Sessions/Week" data-es="Sesiones/Semana">Sessions/Week</th>
+                                <th class="py-3 px-4 text-center" data-en="Total Sessions*" data-es="Sesiones Totales*">Total Sessions*</th>
+                                <th class="py-3 px-4 text-center" data-en="Price/Month" data-es="Precio/Mes">Price/Month</th>
+                                <th class="py-3 px-4 text-center" data-en="Price/Session" data-es="Precio/Sesión">Price/Session</th>
+                                <th class="py-3 px-4 text-center" data-en="Savings" data-es="Ahorro">Savings</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <!-- Starter -->
+                            <tr class="hover:bg-gray-800 transition">
+                                <td class="py-4 px-4 font-bold text-white">Starter</td>
+                                <td class="py-4 px-4 text-center text-gray-300">1x/week</td>
+                                <td class="py-4 px-4 text-center text-gray-300">4</td>
+                                <td class="py-4 px-4 text-center text-white font-bold">€110</td>
+                                <td class="py-4 px-4 text-center text-gray-300">€27.50</td>
+                                <td class="py-4 px-4 text-center text-green-400">€10 saved</td>
+                            </tr>
+                            <!-- Progress -->
+                            <tr class="hover:bg-gray-800 transition bg-black/50">
+                                <td class="py-4 px-4 font-bold text-white">Progress</td>
+                                <td class="py-4 px-4 text-center text-gray-300">2x/week</td>
+                                <td class="py-4 px-4 text-center text-gray-300">8</td>
+                                <td class="py-4 px-4 text-center text-white font-bold">€200</td>
+                                <td class="py-4 px-4 text-center text-gray-300">€25.00</td>
+                                <td class="py-4 px-4 text-center text-green-400">€40 saved</td>
+                            </tr>
+                            <!-- Intensive -->
+                            <tr class="hover:bg-gray-800 transition">
+                                <td class="py-4 px-4 font-bold text-white">Intensive</td>
+                                <td class="py-4 px-4 text-center text-gray-300">3x/week</td>
+                                <td class="py-4 px-4 text-center text-gray-300">12</td>
+                                <td class="py-4 px-4 text-center text-white font-bold">€270</td>
+                                <td class="py-4 px-4 text-center text-gray-300">€22.50</td>
+                                <td class="py-4 px-4 text-center text-green-400">€90 saved</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-gray-400 text-sm mt-2" data-en="* Based on 4 weeks/month" data-es="* Basado en 4 semanas/mes">* Based on 4 weeks/month</p>
+                </div>
+            </div>
 
+            <!-- Flexible Packs -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                <!-- 5-Session Pack -->
+                <div class="bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700 hover:border-red-500 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-white" data-en="5-Session Pack" data-es="Paquete de 5 Sesiones">5-Session Pack</h3>
+                    <div class="text-red-500 text-4xl font-bold text-center mb-2">€135</div>
+                    <div class="text-gray-300 text-center mb-6" data-en="(€27/session)" data-es="(€27/sesión)">(€27/session)</div>
+                    <ul class="text-gray-300 space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                            <span data-en="Flexible scheduling" data-es="Horario flexible">Flexible scheduling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                            <span data-en="Use within 2 months" data-es="Usar en 2 meses">Use within 2 months</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                            <span data-en="Save €15 vs single sessions" data-es="Ahorra €15 vs sesiones individuales">Save €15 vs single sessions</span>
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- 10-Session Pack -->
+                <div class="bg-black p-8 rounded-lg shadow-lg border-2 border-red-500 transform hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-white" data-en="10-Session Pack" data-es="Paquete de 10 Sesiones">10-Session Pack</h3>
+                    <div class="text-red-500 text-4xl font-bold text-center mb-2">€250</div>
+                    <div class="text-gray-300 text-center mb-6" data-en="(€25/session)" data-es="(€25/sesión)">(€25/session)</div>
+                    <ul class="text-gray-300 space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                            <span data-en="Flexible scheduling" data-es="Horario flexible">Flexible scheduling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                            <span data-en="Use within 3 months" data-es="Usar en 3 meses">Use within 3 months</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                            <span data-en="Save €50 vs single sessions" data-es="Ahorra €50 vs sesiones individuales">Save €50 vs single sessions</span>
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buddy Training -->
+            <div class="max-w-2xl mx-auto bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700 hover:border-red-500 transition duration-300">
+                <h3 class="text-2xl font-bold mb-4 text-center text-white" data-en="Buddy Training" data-es="Entrenamiento en Pareja">Buddy Training</h3>
+                <div class="text-red-500 text-3xl font-bold text-center mb-6" data-en="+50% for second person" data-es="+50% para segunda persona">+50% for second person</div>
+                <p class="text-gray-300 text-center mb-6" data-en="Train with a friend and split the cost! Perfect for couples, friends, or colleagues who want to train together." data-es="¡Entrena con un amigo y divide el costo! Perfecto para parejas, amigos o colegas que quieran entrenar juntos.">
+                    Train with a friend and split the cost! Perfect for couples, friends, or colleagues who want to train together.
+                </p>
+                <div class="text-center">
+                    <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Contact for Pricing" data-es="Contactar por Precios">Contact for Pricing</a>
+                </div>
+            </div>
+    <div class="max-w-4xl mx-auto mt-16">
+        <h3 class="text-2xl font-bold mb-8 text-center text-white" data-en="Massage Therapy Pricing" data-es="Precios de Masajes Terapéuticos">Massage Therapy Pricing</h3>
+        
+        <!-- Massage Packages Table -->
+        <div class="overflow-x-auto mb-8">
+            <table class="w-full bg-black rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-red-600 text-white">
+                        <th class="py-3 px-4 text-left" data-en="Package" data-es="Paquete">Package</th>
+                        <th class="py-3 px-4 text-center" data-en="Sessions/Month" data-es="Sesiones/Mes">Sessions/Month</th>
+                        <th class="py-3 px-4 text-center" data-en="Price/Month" data-es="Precio/Mes">Price/Month</th>
+                        <th class="py-3 px-4 text-center" data-en="Price/Session" data-es="Precio/Sesión">Price/Session</th>
+                        <th class="py-3 px-4 text-center" data-en="Savings" data-es="Ahorro">Savings</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                    <!-- Single Session -->
+                    <tr class="hover:bg-gray-800 transition">
+                        <td class="py-4 px-4 font-bold text-white" data-en="Single Session" data-es="Sesión Individual">Single Session</td>
+                        <td class="py-4 px-4 text-center text-gray-300">1</td>
+                        <td class="py-4 px-4 text-center text-white font-bold">€35</td>
+                        <td class="py-4 px-4 text-center text-gray-300">€35</td>
+                        <td class="py-4 px-4 text-center text-gray-300">—</td>
+                    </tr>
+                    <!-- Relax Pack -->
+                    <tr class="hover:bg-gray-800 transition bg-black/50">
+                        <td class="py-4 px-4 font-bold text-white" data-en="Relax Pack" data-es="Paquete Relajación">Relax Pack</td>
+                        <td class="py-4 px-4 text-center text-gray-300">2</td>
+                        <td class="py-4 px-4 text-center text-white font-bold">€65</td>
+                        <td class="py-4 px-4 text-center text-gray-300">€32.50</td>
+                        <td class="py-4 px-4 text-center text-green-400">€5 saved</td>
+                    </tr>
+                    <!-- Wellness Pack -->
+                    <tr class="hover:bg-gray-800 transition">
+                        <td class="py-4 px-4 font-bold text-white" data-en="Wellness Pack" data-es="Paquete Bienestar">Wellness Pack</td>
+                        <td class="py-4 px-4 text-center text-gray-300">4</td>
+                        <td class="py-4 px-4 text-center text-white font-bold">€120</td>
+                        <td class="py-4 px-4 text-center text-gray-300">€30</td>
+                        <td class="py-4 px-4 text-center text-green-400">€20 saved</td>
+                    </tr>
+                    <!-- Training Client Discount -->
+                    <tr class="hover:bg-gray-800 transition bg-black/50">
+                        <td class="py-4 px-4 font-bold text-white" data-en="Training Client Discount" data-es="Descuento para Clientes">Training Client Discount</td>
+                        <td class="py-4 px-4 text-center text-gray-300">1-4</td>
+                        <td class="py-4 px-4 text-center text-white font-bold">-10% off</td>
+                        <td class="py-4 px-4 text-center text-gray-300" data-en="From €31.50/session" data-es="Desde €31.50/sesión">From €31.50/session</td>
+                        <td class="py-4 px-4 text-center text-green-400" data-en="Additional discount" data-es="Descuento adicional">Additional discount</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700">
+            <h4 class="text-xl font-bold mb-4 text-center text-white" data-en="How It Works" data-es="Cómo Funciona">How It Works</h4>
+            <ul class="text-gray-300 space-y-4">
+                <li class="flex items-start">
+                    <div class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</div>
+                    <span data-en="Buy with training: If someone buys a monthly training package, they get 10% off any massage pack." data-es="Compra con entrenamiento: Al comprar un paquete mensual de entrenamiento, obtienes 10% de descuento en cualquier paquete de masajes.">
+                        Buy with training: If someone buys a monthly training package, they get 10% off any massage pack.
+                    </span>
+                </li>
+                <li class="flex items-start">
+                    <div class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</div>
+                    <span data-en="Flexible use: Sessions can be booked anytime within the month." data-es="Uso flexible: Las sesiones se pueden reservar en cualquier momento del mes.">
+                        Flexible use: Sessions can be booked anytime within the month.
+                    </span>
+                </li>
+                <li class="flex items-start">
+                    <div class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</div>
+                    <span data-en="Mix & Match: Clients can combine training and massage in the same week or alternate weeks." data-es="Combinar: Los clientes pueden combinar entrenamiento y masajes en la misma semana o en semanas alternas.">
+                        Mix & Match: Clients can combine training and massage in the same week or alternate weeks.
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+            <div class="mt-12 text-center text-gray-300 max-w-3xl mx-auto">
+                <p data-en="* All packages include personalized training plans." data-es="* Todos los paquetes incluyen planes de entrenamiento personalizados e instrucción en inglés.">
+                    * All packages include personalized training plans as well as nutrional coaching.
+                </p>
+            </div>
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-black">
         <div class="container mx-auto px-6">
@@ -513,7 +795,9 @@
             </div>
         </div>
     </footer>
-
+<a href="https://wa.me/34616877454" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
     <script>
         // Language toggle functionality
        // Language toggle functionality
@@ -605,6 +889,46 @@
         const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
         
         window.location.href = `mailto:ramin.blair@tutanota.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.slide-indicator');
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('bg-opacity-100', i === index);
+                indicator.classList.toggle('bg-opacity-50', i !== index);
+            });
+            currentSlide = index;
+        }
+        
+        // Set up click handlers for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto-advance slides every 5 seconds
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slideCount);
+        }
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Pause on hover
+        const hero = document.getElementById('home');
+        hero.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        hero.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+        
+        // Initialize first slide
+        showSlide(0);
     });
     </script>
 </body>
