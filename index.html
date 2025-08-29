@@ -142,6 +142,67 @@
     .whatsapp-float i {
         margin-left: 2px; /* Slight visual adjustment for the icon */
     }
+     .pricing-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    /* Hide table headers on mobile */
+    .pricing-table thead {
+        display: none;
+    }
+    
+    .pricing-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #374151;
+        border-radius: 0.5rem;
+        background-color: #1f2937;
+    }
+    
+    .pricing-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+        border-bottom: 1px solid #374151;
+    }
+    
+    .pricing-table td:last-child {
+        border-bottom: none;
+    }
+    
+    /* Add labels before each cell */
+    .pricing-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #f3f4f6;
+        margin-right: 1rem;
+    }
+    
+    /* Desktop styles */
+    @media (min-width: 768px) {
+        .pricing-table thead {
+            display: table-header-group;
+            background-color: #ef4444;
+        }
+        
+        .pricing-table tr {
+            display: table-row;
+            margin-bottom: 0;
+            border: none;
+            background-color: transparent;
+        }
+        
+        .pricing-table td {
+            display: table-cell;
+            padding: 1rem;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .pricing-table td::before {
+            display: none;
+        }
+    }
     </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -241,7 +302,7 @@
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book a Session" data-es="Reserva una Sesión">Book a Session</a>
-            <a href="#training" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Learn More" data-es="Saber Más">Learn More</a>
+            <a href="#summary" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Learn More" data-es="Saber Más">Learn More</a>
         </div>
     </div>
 
@@ -253,11 +314,11 @@
            <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 4"></button>
               <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 5"></button>
                  <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 6"></button>
-                                <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 7"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 7"></button>
     </div>
 </section>
 
-    <section class="bg-red-900 text-white py-12">
+    <section class="bg-red-900 text-white py-12" id="summary">
     <div class="container mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6" data-en="Move Better. Feel Better. Learn English." data-es="Muévete mejor. Siéntete mejor. Aprende inglés.">
             Move Better. Feel Better. Learn English.
@@ -542,45 +603,41 @@
             <!-- Monthly Packages -->
             <div class="max-w-4xl mx-auto mb-16">
                 <h3 class="text-2xl font-bold mb-6 text-center text-white" data-en="Monthly Packages" data-es="Paquetes Mensuales">Monthly Packages</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full bg-black rounded-lg overflow-hidden">
+                <div class="overflow-x-visible">
+                    <table class="pricing-table">
                         <thead>
-                            <tr class="bg-red-600 text-white">
-                                <th class="py-3 px-4 text-left" data-en="Package" data-es="Paquete">Package</th>
-                                <th class="py-3 px-4 text-center" data-en="Sessions/Week" data-es="Sesiones/Semana">Sessions/Week</th>
-                                <th class="py-3 px-4 text-center" data-en="Total Sessions*" data-es="Sesiones Totales*">Total Sessions*</th>
-                                <th class="py-3 px-4 text-center" data-en="Price/Month" data-es="Precio/Mes">Price/Month</th>
-                                <th class="py-3 px-4 text-center" data-en="Price/Session" data-es="Precio/Sesión">Price/Session</th>
-                                <th class="py-3 px-4 text-center" data-en="Savings" data-es="Ahorro">Savings</th>
+                            <tr class="text-white">
+                                <th class="py-3 px-4 text-left">Package</th>
+                                <th class="py-3 px-4 text-center">Sessions/Month</th>
+                                <th class="py-3 px-4 text-center">Price/Month</th>
+                                <th class="py-3 px-4 text-center">Price/Session</th>
+                                <th class="py-3 px-4 text-center">Savings</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-700">
+                        <tbody>
                             <!-- Starter -->
-                            <tr class="hover:bg-gray-800 transition">
-                                <td class="py-4 px-4 font-bold text-white">Starter</td>
-                                <td class="py-4 px-4 text-center text-gray-300">1x/week</td>
-                                <td class="py-4 px-4 text-center text-gray-300">4</td>
-                                <td class="py-4 px-4 text-center text-white font-bold">€110</td>
-                                <td class="py-4 px-4 text-center text-gray-300">€27.50</td>
-                                <td class="py-4 px-4 text-center text-green-400">€10 saved</td>
+                            <tr>
+                                <td class="font-bold text-white" data-label="Package">Starter</td>
+                                <td class="text-gray-300" data-label="Sessions">1x/week</td>
+                                <td class="text-white font-bold" data-label="Price/Month">€130</td>
+                                <td class="text-gray-300" data-label="Price/Session">€32.50</td>
+                                <td class="text-green-400" data-label="Savings">€10 saved</td>
                             </tr>
                             <!-- Progress -->
-                            <tr class="hover:bg-gray-800 transition bg-black/50">
-                                <td class="py-4 px-4 font-bold text-white">Progress</td>
-                                <td class="py-4 px-4 text-center text-gray-300">2x/week</td>
-                                <td class="py-4 px-4 text-center text-gray-300">8</td>
-                                <td class="py-4 px-4 text-center text-white font-bold">€200</td>
-                                <td class="py-4 px-4 text-center text-gray-300">€25.00</td>
-                                <td class="py-4 px-4 text-center text-green-400">€40 saved</td>
+                            <tr>
+                                <td class="font-bold text-white" data-label="Package">Progress</td>
+                                <td class="text-gray-300" data-label="Sessions">2x/week</td>
+                                <td class="text-white font-bold" data-label="Price/Month">€240</td>
+                                <td class="text-gray-300" data-label="Price/Session">€30.00</td>
+                                <td class="text-green-400" data-label="Savings">€40 saved</td>
                             </tr>
                             <!-- Intensive -->
-                            <tr class="hover:bg-gray-800 transition">
-                                <td class="py-4 px-4 font-bold text-white">Intensive</td>
-                                <td class="py-4 px-4 text-center text-gray-300">3x/week</td>
-                                <td class="py-4 px-4 text-center text-gray-300">12</td>
-                                <td class="py-4 px-4 text-center text-white font-bold">€270</td>
-                                <td class="py-4 px-4 text-center text-gray-300">€22.50</td>
-                                <td class="py-4 px-4 text-center text-green-400">€90 saved</td>
+                            <tr>
+                                <td class="font-bold text-white" data-label="Package">Intensive</td>
+                                <td class="text-gray-300" data-label="Sessions">3x/week</td>
+                                <td class="text-white font-bold" data-label="Price/Month">€330</td>
+                                <td class="text-gray-300" data-label="Price/Session">€27.50</td>
+                                <td class="text-green-400" data-label="Savings">€90 saved</td>
                             </tr>
                         </tbody>
                     </table>
@@ -650,88 +707,39 @@
                     <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Contact for Pricing" data-es="Contactar por Precios">Contact for Pricing</a>
                 </div>
             </div>
-    <div class="max-w-4xl mx-auto mt-16">
-        <h3 class="text-2xl font-bold mb-8 text-center text-white" data-en="Massage Therapy Pricing" data-es="Precios de Masajes Terapéuticos">Massage Therapy Pricing</h3>
-        
+            
         <!-- Massage Packages Table -->
-        <div class="overflow-x-auto mb-8">
-            <table class="w-full bg-black rounded-lg overflow-hidden">
-                <thead>
-                    <tr class="bg-red-600 text-white">
-                        <th class="py-3 px-4 text-left" data-en="Package" data-es="Paquete">Package</th>
-                        <th class="py-3 px-4 text-center" data-en="Sessions/Month" data-es="Sesiones/Mes">Sessions/Month</th>
-                        <th class="py-3 px-4 text-center" data-en="Price/Month" data-es="Precio/Mes">Price/Month</th>
-                        <th class="py-3 px-4 text-center" data-en="Price/Session" data-es="Precio/Sesión">Price/Session</th>
-                        <th class="py-3 px-4 text-center" data-en="Savings" data-es="Ahorro">Savings</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-700">
-                    <!-- Single Session -->
-                    <tr class="hover:bg-gray-800 transition">
-                        <td class="py-4 px-4 font-bold text-white" data-en="Single Session" data-es="Sesión Individual">Single Session</td>
-                        <td class="py-4 px-4 text-center text-gray-300">1</td>
-                        <td class="py-4 px-4 text-center text-white font-bold">€35</td>
-                        <td class="py-4 px-4 text-center text-gray-300">€35</td>
-                        <td class="py-4 px-4 text-center text-gray-300">—</td>
-                    </tr>
-                    <!-- Relax Pack -->
-                    <tr class="hover:bg-gray-800 transition bg-black/50">
-                        <td class="py-4 px-4 font-bold text-white" data-en="Relax Pack" data-es="Paquete Relajación">Relax Pack</td>
-                        <td class="py-4 px-4 text-center text-gray-300">2</td>
-                        <td class="py-4 px-4 text-center text-white font-bold">€65</td>
-                        <td class="py-4 px-4 text-center text-gray-300">€32.50</td>
-                        <td class="py-4 px-4 text-center text-green-400">€5 saved</td>
-                    </tr>
-                    <!-- Wellness Pack -->
-                    <tr class="hover:bg-gray-800 transition">
-                        <td class="py-4 px-4 font-bold text-white" data-en="Wellness Pack" data-es="Paquete Bienestar">Wellness Pack</td>
-                        <td class="py-4 px-4 text-center text-gray-300">4</td>
-                        <td class="py-4 px-4 text-center text-white font-bold">€120</td>
-                        <td class="py-4 px-4 text-center text-gray-300">€30</td>
-                        <td class="py-4 px-4 text-center text-green-400">€20 saved</td>
-                    </tr>
-                    <!-- Training Client Discount -->
-                    <tr class="hover:bg-gray-800 transition bg-black/50">
-                        <td class="py-4 px-4 font-bold text-white" data-en="Training Client Discount" data-es="Descuento para Clientes">Training Client Discount</td>
-                        <td class="py-4 px-4 text-center text-gray-300">1-4</td>
-                        <td class="py-4 px-4 text-center text-white font-bold">-10% off</td>
-                        <td class="py-4 px-4 text-center text-gray-300" data-en="From €31.50/session" data-es="Desde €31.50/sesión">From €31.50/session</td>
-                        <td class="py-4 px-4 text-center text-green-400" data-en="Additional discount" data-es="Descuento adicional">Additional discount</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- How It Works Section -->
-        <div class="bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700">
-            <h4 class="text-xl font-bold mb-4 text-center text-white" data-en="How It Works" data-es="Cómo Funciona">How It Works</h4>
-            <ul class="text-gray-300 space-y-4">
+<section class="py-12 bg-gray-900">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+            <span class="text-white" data-en="MASSAGE" data-es="MASAJES">MASSAGE</span> 
+            <span class="text-red-500" data-en="PRICING" data-es="PRECIOS">PRICING</span>
+        </h2>
+        
+        <div class="max-w-md mx-auto bg-black p-8 rounded-lg shadow-lg border-2 border-red-500">
+            <div class="text-center mb-6">
+                <div class="text-red-500 text-5xl font-bold mb-2">€35</div>
+                <p class="text-gray-300 text-xl" data-en="per session" data-es="por sesión">per session</p>
+            </div>
+            
+            <ul class="text-gray-300 space-y-3 mb-6">
                 <li class="flex items-start">
-                    <div class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</div>
-                    <span data-en="Buy with training: If someone buys a monthly training package, they get 10% off any massage pack." data-es="Compra con entrenamiento: Al comprar un paquete mensual de entrenamiento, obtienes 10% de descuento en cualquier paquete de masajes.">
-                        Buy with training: If someone buys a monthly training package, they get 10% off any massage pack.
-                    </span>
+                    <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                    <span data-en="60 minute therapeutic massage" data-es="Masaje terapéutico de 60 minutos">60 minute therapeutic massage</span>
                 </li>
                 <li class="flex items-start">
-                    <div class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</div>
-                    <span data-en="Flexible use: Sessions can be booked anytime within the month." data-es="Uso flexible: Las sesiones se pueden reservar en cualquier momento del mes.">
-                        Flexible use: Sessions can be booked anytime within the month.
-                    </span>
-                </li>
-                <li class="flex items-start">
-                    <div class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</div>
-                    <span data-en="Mix & Match: Clients can combine training and massage in the same week or alternate weeks." data-es="Combinar: Los clientes pueden combinar entrenamiento y masajes en la misma semana o en semanas alternas.">
-                        Mix & Match: Clients can combine training and massage in the same week or alternate weeks.
-                    </span>
+                    <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                    <span data-en="Flexible scheduling" data-es="Horario flexible">Flexible scheduling</span>
                 </li>
             </ul>
+            
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded transition duration-300" data-en="Book a Massage" data-es="Reservar Masaje">Book a Massage</a>
+            </div>
         </div>
     </div>
-            <div class="mt-12 text-center text-gray-300 max-w-3xl mx-auto">
-                <p data-en="* All packages include personalized training plans." data-es="* Todos los paquetes incluyen planes de entrenamiento personalizados e instrucción en inglés.">
-                    * All packages include personalized training plans as well as nutrional coaching.
-                </p>
-            </div>
+</section>
+
         </div>
     </section>
     <!-- Contact Section -->
