@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalistheniks Trainer | Animal Movement & Functional Fitness</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-            .hero-slide {
-                transition: opacity 0.5s ease-in-out;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-        .slide-indicator {
-            transition: all 0.3s ease;
-        }
-        .slide-indicator.bg-opacity-100 {
-            background-color: rgba(239, 68, 68, 1);
-            transform: scale(1.2);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #ef4444;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .training-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .training-card:hover .training-icon {
-            transform: scale(1.1);
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px #ef4444;
-        }
+      .hero-slide {
+        transition: opacity 0.5s ease-in-out;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .slide-indicator {
+        transition: all 0.3s ease;
+      }
+      .slide-indicator.bg-opacity-100 {
+        background-color: rgba(239, 68, 68, 1);
+        transform: scale(1.2);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #ef4444;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .training-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .training-card:hover .training-icon {
+        transform: scale(1.1);
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #ef4444;
+      }
 
       .language-toggle {
         position: relative;
         display: inline-block;
         width: 60px;
         height: 30px;
-    }
+      }
 
-    .language-toggle input {
+      .language-toggle input {
         opacity: 0;
         width: 0;
         height: 0;
-    }
+      }
 
-    .slider {
+      .slider {
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -73,11 +77,11 @@
         right: 0;
         bottom: 0;
         background-color: #333;
-        transition: .4s;
+        transition: 0.4s;
         border-radius: 34px;
-    }
+      }
 
-    .slider:before {
+      .slider:before {
         position: absolute;
         content: "";
         height: 22px;
@@ -85,44 +89,44 @@
         left: 4px;
         bottom: 4px;
         background-color: white;
-        transition: .4s;
+        transition: 0.4s;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         background-size: cover;
-        background-image: url('https://flagcdn.com/w20/gb.png');
+        background-image: url("https://flagcdn.com/w20/gb.png");
         background-position: center;
-    }
+      }
 
-    input:checked + .slider {
+      input:checked + .slider {
         background-color: #ef4444;
-    }
+      }
 
-    input:checked + .slider:before {
-        background-image: url('https://flagcdn.com/w20/es.png');
+      input:checked + .slider:before {
+        background-image: url("https://flagcdn.com/w20/es.png");
         transform: translateX(30px);
-    }
+      }
 
-    .flag-label {
+      .flag-label {
         display: inline-block;
-        width: 40px;
+        width: 38px;
         height: 20px;
         background-size: contain;
         margin: 0 5px;
-    }
+      }
 
-        .hidden-language {
-            display: none;
-        }
-    .whatsapp-float {
+      .hidden-language {
+        display: none;
+      }
+      .whatsapp-float {
         position: fixed;
         width: 60px;
         height: 60px;
         bottom: 40px;
         right: 40px;
-        background-color: #25D366;
-        color: #FFF;
+        background-color: #25d366;
+        color: #fff;
         border-radius: 50%;
         text-align: center;
         font-size: 30px;
@@ -132,867 +136,1574 @@
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-    }
-    
-    .whatsapp-float:hover {
-        background-color: #128C7E;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #128c7e;
         transform: scale(1.1);
-    }
-    
-    .whatsapp-float i {
+      }
+
+      .whatsapp-float i {
         margin-left: 2px; /* Slight visual adjustment for the icon */
-    }
-     .pricing-table {
+      }
+      .pricing-table {
         width: 100%;
         border-collapse: collapse;
-    }
-    
-    /* Hide table headers on mobile */
-    .pricing-table thead {
+      }
+
+      /* Hide table headers on mobile */
+      .pricing-table thead {
         display: none;
-    }
-    
-    .pricing-table tr {
+      }
+
+      .pricing-table tr {
         display: block;
         margin-bottom: 1rem;
         border: 1px solid #374151;
         border-radius: 0.5rem;
         background-color: #1f2937;
-    }
-    
-    .pricing-table td {
+      }
+
+      .pricing-table td {
         display: flex;
         justify-content: space-between;
         padding: 0.75rem;
         border-bottom: 1px solid #374151;
-    }
-    
-    .pricing-table td:last-child {
+      }
+
+      .pricing-table td:last-child {
         border-bottom: none;
-    }
-    
-    /* Add labels before each cell */
-    .pricing-table td::before {
+      }
+
+      /* Add labels before each cell */
+      .pricing-table td::before {
         content: attr(data-label);
         font-weight: 600;
         color: #f3f4f6;
         margin-right: 1rem;
-    }
-    
-    /* Desktop styles */
-    @media (min-width: 768px) {
+      }
+
+      /* Desktop styles */
+      @media (min-width: 768px) {
         .pricing-table thead {
-            display: table-header-group;
-            background-color: #ef4444;
+          display: table-header-group;
+          background-color: #ef4444;
         }
-        
+
         .pricing-table tr {
-            display: table-row;
-            margin-bottom: 0;
-            border: none;
-            background-color: transparent;
+          display: table-row;
+          margin-bottom: 0;
+          border: none;
+          background-color: transparent;
         }
-        
+
         .pricing-table td {
-            display: table-cell;
-            padding: 1rem;
-            border-bottom: 1px solid #374151;
+          display: table-cell;
+          padding: 1rem;
+          border-bottom: 1px solid #374151;
         }
-        
+
         .pricing-table td::before {
-            display: none;
+          display: none;
         }
-    }
+      }
     </style>
-</head>
-<body class="bg-black text-white font-sans">
+  </head>
+  <body class="bg-black text-white font-sans">
     <!-- Navigation -->
     <nav class="fixed w-full bg-black/90 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-red-500">
-                    <span class="text-white" data-en="TRAIN WITH" data-es="ENTRENA CON">TRAIN WITH</span>
-                    <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span> 
-                </div>
-                
-                <div class="flex items-center space-x-6">
-                    <!-- Language Toggle -->
-                    <div class="flex items-center">
-                        <span class="flag-label" style="background-image: url('https://flagcdn.com/w20/gb.png')"></span>
-                        <label class="language-toggle mx-2">
-                            <input type="checkbox" id="language-toggle">
-                            <span class="slider"></span>
-                        </label>
-                        <span class="flag-label" style="background-image: url('https://flagcdn.com/w20/es.png')"></span>
-                    </div>
-                    
-                    <!-- Mobile menu button -->
-                    <div class="md:hidden">
-                        <button id="menu-toggle" class="text-white focus:outline-none">
-                            <i class="fas fa-bars text-2xl"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-red-500" data-en="Home" data-es="Inicio">Home</a>
-                    <a href="#training" class="nav-link text-white hover:text-red-500" data-en="Training" data-es="Entrenamiento">Training</a>
-                    <a href="#services" class="nav-link text-white hover:text-red-500" data-en="Services" data-es="Servicios">Services</a>
-                    <a href="#about" class="nav-link text-white hover:text-red-500" data-en="About" data-es="Sobre mí">About</a>
-                    <a href="#pricing" class="nav-link text-white hover:text-red-500" data-en="Pricing" data-es="Precios">Pricing</a>
-                    <a href="#contact" class="nav-link text-white hover:text-red-500" data-en="Contact" data-es="Contacto">Contact</a>
-                </div>
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="text-2xl font-bold text-red-500">
+            <span class="text-white" data-en="TRAIN WITH" data-es="ENTRENA CON"
+              >TRAIN WITH</span
+            >
+            <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span>
+          </div>
+
+          <div class="flex items-center space-x-6">
+            <!-- Language Toggle -->
+            <div class="flex items-center">
+              <span
+                class="flag-label"
+                style="background-image: url('https://flagcdn.com/w20/gb.png')"
+              ></span>
+              <label class="language-toggle mx-2">
+                <input type="checkbox" id="language-toggle" />
+                <span class="slider"></span>
+              </label>
+              <span
+                class="flag-label"
+                style="background-image: url('https://flagcdn.com/w20/es.png')"
+              ></span>
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="#home" class="block py-2 text-white hover:text-red-500" data-en="Home" data-es="Inicio">Home</a>
-                <a href="#training" class="block py-2 text-white hover:text-red-500" data-en="Training" data-es="Entrenamiento">Training</a>
-                <a href="#services" class="block py-2 text-white hover:text-red-500" data-en="Services" data-es="Servicios">Services</a>
-                <a href="#about" class="block py-2 text-white hover:text-red-500" data-en="About" data-es="Sobre mí">About</a>
-                <a href="#pricing" class="block py-2 text-white hover:text-red-500" data-en="Pricing" data-es="Precios">Pricing</a>
-                <a href="#contact" class="block py-2 text-white hover:text-red-500" data-en="Contact" data-es="Contacto">Contact</a>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+              <button id="menu-toggle" class="text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+              </button>
             </div>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-white hover:text-red-500"
+              data-en="Home"
+              data-es="Inicio"
+              >Home</a
+            >
+            <a
+              href="#training"
+              class="nav-link text-white hover:text-red-500"
+              data-en="Training"
+              data-es="Entrenamiento"
+              >Training</a
+            >
+            <a
+              href="#services"
+              class="nav-link text-white hover:text-red-500"
+              data-en="Services"
+              data-es="Servicios"
+              >Services</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-white hover:text-red-500"
+              data-en="About"
+              data-es="Sobre mí"
+              >About</a
+            >
+            <a
+              href="#pricing"
+              class="nav-link text-white hover:text-red-500"
+              data-en="Pricing"
+              data-es="Precios"
+              >Pricing</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-white hover:text-red-500"
+              data-en="Contact"
+              data-es="Contacto"
+              >Contact</a
+            >
+          </div>
         </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+          <a
+            href="#home"
+            class="block py-2 text-white hover:text-red-500"
+            data-en="Home"
+            data-es="Inicio"
+            >Home</a
+          >
+          <a
+            href="#training"
+            class="block py-2 text-white hover:text-red-500"
+            data-en="Training"
+            data-es="Entrenamiento"
+            >Training</a
+          >
+          <a
+            href="#services"
+            class="block py-2 text-white hover:text-red-500"
+            data-en="Services"
+            data-es="Servicios"
+            >Services</a
+          >
+          <a
+            href="#about"
+            class="block py-2 text-white hover:text-red-500"
+            data-en="About"
+            data-es="Sobre mí"
+            >About</a
+          >
+          <a
+            href="#pricing"
+            class="block py-2 text-white hover:text-red-500"
+            data-en="Pricing"
+            data-es="Precios"
+            >Pricing</a
+          >
+          <a
+            href="#contact"
+            class="block py-2 text-white hover:text-red-500"
+            data-en="Contact"
+            data-es="Contacto"
+            >Contact</a
+          >
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-<section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-    <!-- Slideshow Container -->
-    <div class="absolute inset-0 z-0">
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+    >
+      <!-- Slideshow Container -->
+      <div class="absolute inset-0 z-0">
         <!-- Slide 1 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-100" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/monkey.png')">
-        </div>
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-100"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/monkey.png');
+          "
+        ></div>
         <!-- Slide 2 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/pullup.png')">
-        </div>
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/pullup.png');
+          "
+        ></div>
         <!-- Slide 3 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/dead.png')">
-        </div>
-                <!-- Slide 4 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/pushup.png')">
-        </div>
-                <!-- Slide 5 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/bridge.png')">
-        </div>
-                <!-- Slide 6 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/eagle.png')">
-        </div>
-                        <!-- Slide 7 -->
-        <div class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0" 
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./docs/assets/images/rings.png')">
-        </div>
-    </div>
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/dead.png');
+          "
+        ></div>
+        <!-- Slide 4 -->
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/pushup.png');
+          "
+        ></div>
+        <!-- Slide 5 -->
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/bridge.png');
+          "
+        ></div>
+        <!-- Slide 6 -->
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/eagle.png');
+          "
+        ></div>
+        <!-- Slide 7 -->
+        <div
+          class="hero-slide absolute inset-0 bg-contain transition-opacity duration-1000 opacity-0"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('./docs/assets/images/rings.png');
+          "
+        ></div>
+      </div>
 
-    <!-- Content -->
-    <div class="container mx-auto px-6 text-center relative z-10">
+      <!-- Content -->
+      <div class="container mx-auto px-6 text-center relative z-10">
         <h1 class="text-4xl md:text-6xl font-bold mb-6">
-            <span class="text-red-500" data-en="TRAIN WITH" data-es="ENTRENA CON">TRAIN WITH</span> 
-            <span class="text-white" data-en="ALEX" data-es="ALEX">ALEX</span>
+          <span class="text-red-500" data-en="TRAIN WITH" data-es="ENTRENA CON"
+            >TRAIN WITH</span
+          >
+          <span class="text-white" data-en="ALEX" data-es="ALEX">ALEX</span>
         </h1>
-        <p class="text-xl md:text-2xl mb-8 text-gray-300" data-en="Rediscover your natural movement patterns through animal movement, calisthenics, and qigong" data-es="Redescubre tus patrones de movimiento naturales a través del movimiento animal, calistenia y qigong">
-            Rediscover your natural movement patterns through animal movement, calisthenics, and qigong
+        <p
+          class="text-xl md:text-2xl mb-8 text-gray-300"
+          data-en="Rediscover your natural movement patterns through animal movement, calisthenics, and qigong"
+          data-es="Redescubre tus patrones de movimiento naturales a través del movimiento animal, calistenia y qigong"
+        >
+          Rediscover your natural movement patterns through animal movement,
+          calisthenics, and qigong
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book a Session" data-es="Reserva una Sesión">Book a Session</a>
-            <a href="#summary" class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105" data-en="Learn More" data-es="Saber Más">Learn More</a>
+          <a
+            href="#contact"
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+            data-en="Book a Session"
+            data-es="Reserva una Sesión"
+            >Book a Session</a
+          >
+          <a
+            href="#summary"
+            class="bg-transparent border-2 border-red-600 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+            data-en="Learn More"
+            data-es="Saber Más"
+            >Learn More</a
+          >
         </div>
-    </div>
+      </div>
 
-    <!-- Slide Indicators -->
-    <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-10">
-        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 1"></button>
-        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 2"></button>
-        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 3"></button>
-           <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 4"></button>
-              <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 5"></button>
-                 <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 6"></button>
-        <button class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none" aria-label="Go to slide 7"></button>
-    </div>
-</section>
+      <!-- Slide Indicators -->
+      <div
+        class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-10"
+      >
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 1"
+        ></button>
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 2"
+        ></button>
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 3"
+        ></button>
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 4"
+        ></button>
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 5"
+        ></button>
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 6"
+        ></button>
+        <button
+          class="slide-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"
+          aria-label="Go to slide 7"
+        ></button>
+      </div>
+    </section>
 
     <section class="bg-red-900 text-white py-12" id="summary">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6" data-en="Move Better. Feel Better. Learn English." data-es="Muévete mejor. Siéntete mejor. Aprende inglés.">
-            Move Better. Feel Better. Learn English.
+      <div class="container mx-auto px-6 text-center">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-6"
+          data-en="Move Better. Feel Better. Learn English."
+          data-es="Muévete mejor. Siéntete mejor. Aprende inglés."
+        >
+          Move Better. Feel Better. Learn English.
         </h2>
-        
+
         <div class="max-w-3xl mx-auto space-y-6 text-lg">
-            <p data-en="Looking for a friendly, English-speaking personal trainer in Alcobendas? I offer gentle, personalized fitness sessions focused on functional movement, mobility, and bodyweight training—perfect for people who want to feel stronger, move better, and stay active without the pressure of hardcore gym culture." 
-               data-es="¿Buscas un entrenador personal amable que hable inglés en Alcobendas? Ofrezco sesiones de fitness personalizadas y suaves centradas en movimiento funcional, movilidad y entrenamiento con peso corporal, perfectas para quienes quieren sentirse más fuertes, moverse mejor y mantenerse activos sin la presión de la cultura de gimnasio intensa.">
-                Looking for a friendly, English-speaking personal trainer in Alcobendas? I offer gentle, personalized fitness sessions focused on functional movement, mobility, and bodyweight training—perfect for people who want to feel stronger, move better, and stay active without the pressure of hardcore gym culture.
-            </p>
-            
-            <p data-en="All sessions are taught in English, so you can practice your English conversation skills while improving your fitness in a relaxed, supportive environment." 
-               data-es="Todas las sesiones se imparten en inglés, para que puedas practicar tus habilidades de conversación en inglés mientras mejoras tu condición física en un ambiente relajado y de apoyo.">
-                All sessions are taught in English, so you can practice your English conversation skills while improving your fitness in a relaxed, supportive environment.
-            </p>
+          <p
+            data-en="Looking for a friendly, English-speaking personal trainer in Alcobendas? I offer gentle, personalized fitness sessions focused on functional movement, mobility, and bodyweight training—perfect for people who want to feel stronger, move better, and stay active without the pressure of hardcore gym culture."
+            data-es="¿Buscas un entrenador personal amable que hable inglés en Alcobendas? Ofrezco sesiones de fitness personalizadas y suaves centradas en movimiento funcional, movilidad y entrenamiento con peso corporal, perfectas para quienes quieren sentirse más fuertes, moverse mejor y mantenerse activos sin la presión de la cultura de gimnasio intensa."
+          >
+            Looking for a friendly, English-speaking personal trainer in
+            Alcobendas? I offer gentle, personalized fitness sessions focused on
+            functional movement, mobility, and bodyweight training—perfect for
+            people who want to feel stronger, move better, and stay active
+            without the pressure of hardcore gym culture.
+          </p>
+
+          <p
+            data-en="All sessions are taught in English, so you can practice your English conversation skills while improving your fitness in a relaxed, supportive environment."
+            data-es="Todas las sesiones se imparten en inglés, para que puedas practicar tus habilidades de conversación en inglés mientras mejoras tu condición física en un ambiente relajado y de apoyo."
+          >
+            All sessions are taught in English, so you can practice your English
+            conversation skills while improving your fitness in a relaxed,
+            supportive environment.
+          </p>
         </div>
-        
+
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div class="bg-black/20 p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-2" data-en="Gentle, personalized training" data-es="Entrenamiento personalizado y suave">Gentle, personalized training</h3>
-                <p data-en="Supportive workouts tailored to your fitness level." data-es="Rutinas de apoyo adaptadas a tu nivel de condición física.">
-                    Supportive workouts tailored to your fitness level.
-                </p>
-            </div>
-            
-            <div class="bg-black/20 p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-2" data-en="Mind-body focus" data-es="Enfoque mente-cuerpo">Mind-body focus</h3>
-                <p data-en="Build strength, mobility, and confidence without intimidation." data-es="Desarrolla fuerza, movilidad y confianza sin intimidación.">
-                    Build strength, mobility, and confidence without intimidation.
-                </p>
-            </div>
-            
-            <div class="bg-black/20 p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-2" data-en="Flexible approach" data-es="Enfoque flexible">Flexible approach</h3>
-                <p data-en="Train at your pace, with or without equipment." data-es="Entrena a tu ritmo, con o sin equipo.">
-                    Train at your pace, with or without equipment.
-                </p>
-            </div>
-            <div class="bg-black/20 p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-2" data-en="English-speaking sessions" data-es="Sesiones en inglés">English-speaking sessions</h3>
-                <p data-en="Improve your English while you move." data-es="Mejora tu inglés mientras te mueves.">
-                    Improve your English while you move.
-                </p>
-            </div>
+          <div class="bg-black/20 p-6 rounded-lg">
+            <h3
+              class="text-xl font-bold mb-2"
+              data-en="Gentle, personalized training"
+              data-es="Entrenamiento personalizado y suave"
+            >
+              Gentle, personalized training
+            </h3>
+            <p
+              data-en="Supportive workouts tailored to your fitness level."
+              data-es="Rutinas de apoyo adaptadas a tu nivel de condición física."
+            >
+              Supportive workouts tailored to your fitness level.
+            </p>
+          </div>
+
+          <div class="bg-black/20 p-6 rounded-lg">
+            <h3
+              class="text-xl font-bold mb-2"
+              data-en="Mind-body focus"
+              data-es="Enfoque mente-cuerpo"
+            >
+              Mind-body focus
+            </h3>
+            <p
+              data-en="Build strength, mobility, and confidence without intimidation."
+              data-es="Desarrolla fuerza, movilidad y confianza sin intimidación."
+            >
+              Build strength, mobility, and confidence without intimidation.
+            </p>
+          </div>
+
+          <div class="bg-black/20 p-6 rounded-lg">
+            <h3
+              class="text-xl font-bold mb-2"
+              data-en="Flexible approach"
+              data-es="Enfoque flexible"
+            >
+              Flexible approach
+            </h3>
+            <p
+              data-en="Train at your pace, with or without equipment."
+              data-es="Entrena a tu ritmo, con o sin equipo."
+            >
+              Train at your pace, with or without equipment.
+            </p>
+          </div>
+          <div class="bg-black/20 p-6 rounded-lg">
+            <h3
+              class="text-xl font-bold mb-2"
+              data-en="English-speaking sessions"
+              data-es="Sesiones en inglés"
+            >
+              English-speaking sessions
+            </h3>
+            <p
+              data-en="Improve your English while you move."
+              data-es="Mejora tu inglés mientras te mueves."
+            >
+              Improve your English while you move.
+            </p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <!-- Training Methods Section -->
     <section id="training" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-white" data-en="TRAINING" data-es="MÉTODOS DE">TRAINING</span> 
-                <span class="text-red-500" data-en="METHODS" data-es="ENTRENAMIENTO">METHODS</span>
-            </h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Animal Movement -->
-                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
-                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
-                        <i class="fas fa-paw"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Animal Movement" data-es="Movimiento Animal">Animal Movement</h3>
-                    <p class="text-gray-300" data-en="Reconnect with movement patterns inspired by animals. Improve mobility, coordination, and functional strength through ground-based movements." data-es="Reconéctate con patrones de movimiento inspirados en animales. Mejora la movilidad, coordinación y fuerza funcional a través de movimientos en el suelo.">
-                        Reconnect with movement patterns inspired by animals. Improve mobility, coordination, and functional strength through ground-based movements.
-                    </p>
-                </div>
-                
-                <!-- Calisthenics -->
-                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
-                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Calisthenics" data-es="Calistenia">Calisthenics</h3>
-                    <p class="text-gray-300" data-en="Master your bodyweight through progressive calisthenics training. Develop strength, control, and athleticism using minimal equipment." data-es="Domina tu peso corporal a través del entrenamiento progresivo de calistenia. Desarrolla fuerza, control y atletismo usando equipamiento mínimo.">
-                        Master your bodyweight through progressive calisthenics training. Develop strength, control, and athleticism using minimal equipment.
-                    </p>
-                </div>
-                
-                <!-- Qigong -->
-                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
-                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
-                        <i class="fas fa-wind"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Qigong" data-es="Qigong">Qigong</h3>
-                    <p class="text-gray-300" data-en="Cultivate energy and mindfulness through ancient Chinese movement practices. Improve breathing, posture, and mind-body connection." data-es="Cultiva energía y atención plena a través de prácticas de movimiento chinas antiguas. Mejora la respiración, postura y conexión mente-cuerpo.">
-                        Cultivate energy and mindfulness through ancient Chinese movement practices. Improve breathing, posture, and mind-body connection.
-                    </p>
-                </div>
-                
-                <!-- Traditional Training -->
-                <div class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600">
-                    <div class="training-icon text-red-500 text-5xl mb-6 text-center">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-white" data-en="Traditional Training" data-es="Entrenamiento Tradicional">Traditional Training</h3>
-                    <p class="text-gray-300" data-en="Strength and conditioning through weights and cardio. Customized programs to build muscle, burn fat, and improve cardiovascular health." data-es="Fuerza y acondicionamiento con pesas y cardio. Programas personalizados para ganar músculo, quemar grasa y mejorar la salud cardiovascular.">
-                        Strength and conditioning through weights and cardio. Customized programs to build muscle, burn fat, and improve cardiovascular health.
-                    </p>
-                </div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-white" data-en="TRAINING" data-es="MÉTODOS DE"
+            >TRAINING</span
+          >
+          <span class="text-red-500" data-en="METHODS" data-es="ENTRENAMIENTO"
+            >METHODS</span
+          >
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Animal Movement -->
+          <div
+            class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600"
+          >
+            <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+              <i class="fas fa-paw"></i>
             </div>
-        </div>
-    </section>
-<section class="py-12 bg-black">
-    <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto p-6 bg-gray-900 rounded-lg">
-            <h3 class="text-2xl font-bold mb-4 text-white" data-en="Fully Equipped Training Space" data-es="Espacio de Entrenamiento Completamente Equipado">Fully Equipped Training Space</h3>
-            <p class="text-gray-300 mb-6" data-en="Train in my dedicated fitness space featuring professional-grade equipment:" data-es="Entrena en mi espacio dedicado al fitness que cuenta con equipos profesionales:">
-                Train in my dedicated fitness space featuring professional-grade equipment:
+            <h3
+              class="text-xl font-bold mb-4 text-center text-white"
+              data-en="Animal Movement"
+              data-es="Movimiento Animal"
+            >
+              Animal Movement
+            </h3>
+            <p
+              class="text-gray-300"
+              data-en="Reconnect with movement patterns inspired by animals. Improve mobility, coordination, and functional strength through ground-based movements."
+              data-es="Reconéctate con patrones de movimiento inspirados en animales. Mejora la movilidad, coordinación y fuerza funcional a través de movimientos en el suelo."
+            >
+              Reconnect with movement patterns inspired by animals. Improve
+              mobility, coordination, and functional strength through
+              ground-based movements.
             </p>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="flex items-center">
-                    <i class="fas fa-check text-red-500 mr-3"></i>
-                    <span data-en="Parallel Bars" data-es="Barras Paralelas">Parallel Bars</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check text-red-500 mr-3"></i>
-                    <span data-en="Gymnastic Rings" data-es="Anillas Gimnásticas">Gymnastic Rings</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check text-red-500 mr-3"></i>
-                    <span data-en="Pull-Up Station" data-es="Estación de Dominadas">Pull-Up Station</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check text-red-500 mr-3"></i>
-                    <span data-en="Cardio Equipment" data-es="Equipo de Cardio">Cardio Equipment</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check text-red-500 mr-3"></i>
-                    <span data-en="Resistance Bands" data-es="Bandas de Resistencia">Resistance Bands</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check text-red-500 mr-3"></i>
-                    <span data-en="Free Weights" data-es="Pesas Libres">Free Weights</span>
-                </div>
+          </div>
+
+          <!-- Calisthenics -->
+          <div
+            class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600"
+          >
+            <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+              <i class="fas fa-child"></i>
             </div>
+            <h3
+              class="text-xl font-bold mb-4 text-center text-white"
+              data-en="Calisthenics"
+              data-es="Calistenia"
+            >
+              Calisthenics
+            </h3>
+            <p
+              class="text-gray-300"
+              data-en="Master your bodyweight through progressive calisthenics training. Develop strength, control, and athleticism using minimal equipment."
+              data-es="Domina tu peso corporal a través del entrenamiento progresivo de calistenia. Desarrolla fuerza, control y atletismo usando equipamiento mínimo."
+            >
+              Master your bodyweight through progressive calisthenics training.
+              Develop strength, control, and athleticism using minimal
+              equipment.
+            </p>
+          </div>
+
+          <!-- Qigong -->
+          <div
+            class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600"
+          >
+            <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+              <i class="fas fa-wind"></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-4 text-center text-white"
+              data-en="Qigong"
+              data-es="Qigong"
+            >
+              Qigong
+            </h3>
+            <p
+              class="text-gray-300"
+              data-en="Cultivate energy and mindfulness through ancient Chinese movement practices. Improve breathing, posture, and mind-body connection."
+              data-es="Cultiva energía y atención plena a través de prácticas de movimiento chinas antiguas. Mejora la respiración, postura y conexión mente-cuerpo."
+            >
+              Cultivate energy and mindfulness through ancient Chinese movement
+              practices. Improve breathing, posture, and mind-body connection.
+            </p>
+          </div>
+
+          <!-- Traditional Training -->
+          <div
+            class="training-card bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-600"
+          >
+            <div class="training-icon text-red-500 text-5xl mb-6 text-center">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-4 text-center text-white"
+              data-en="Traditional Training"
+              data-es="Entrenamiento Tradicional"
+            >
+              Traditional Training
+            </h3>
+            <p
+              class="text-gray-300"
+              data-en="Strength and conditioning through weights and cardio. Customized programs to build muscle, burn fat, and improve cardiovascular health."
+              data-es="Fuerza y acondicionamiento con pesas y cardio. Programas personalizados para ganar músculo, quemar grasa y mejorar la salud cardiovascular."
+            >
+              Strength and conditioning through weights and cardio. Customized
+              programs to build muscle, burn fat, and improve cardiovascular
+              health.
+            </p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+    <section class="py-12 bg-black">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto p-6 bg-gray-900 rounded-lg">
+          <h3
+            class="text-2xl font-bold mb-4 text-white"
+            data-en="Fully Equipped Training Space"
+            data-es="Espacio de Entrenamiento Completamente Equipado"
+          >
+            Fully Equipped Training Space
+          </h3>
+          <p
+            class="text-gray-300 mb-6"
+            data-en="Train in my dedicated fitness space featuring professional-grade equipment:"
+            data-es="Entrena en mi espacio dedicado al fitness que cuenta con equipos profesionales:"
+          >
+            Train in my dedicated fitness space featuring professional-grade
+            equipment:
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center">
+              <i class="fas fa-check text-red-500 mr-3"></i>
+              <span data-en="Parallel Bars" data-es="Barras Paralelas"
+                >Parallel Bars</span
+              >
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-red-500 mr-3"></i>
+              <span data-en="Gymnastic Rings" data-es="Anillas Gimnásticas"
+                >Gymnastic Rings</span
+              >
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-red-500 mr-3"></i>
+              <span data-en="Pull-Up Station" data-es="Estación de Dominadas"
+                >Pull-Up Station</span
+              >
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-red-500 mr-3"></i>
+              <span data-en="Cardio Equipment" data-es="Equipo de Cardio"
+                >Cardio Equipment</span
+              >
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-red-500 mr-3"></i>
+              <span data-en="Resistance Bands" data-es="Bandas de Resistencia"
+                >Resistance Bands</span
+              >
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-red-500 mr-3"></i>
+              <span data-en="Free Weights" data-es="Pesas Libres"
+                >Free Weights</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Additional Services Section -->
     <section id="services" class="py-20 bg-black">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-red-500" data-en="ADDITIONAL" data-es="SERVICIOS">ADDITIONAL</span> 
-                <span class="text-white" data-en="SERVICES" data-es="ADICIONALES">SERVICES</span>
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Massage Therapy -->
-                <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-red-600">
-                    <div class="flex items-center mb-6">
-                        <div class="text-red-500 text-4xl mr-4">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white" data-en="Therapeutic Massage" data-es="Masaje Terapéutico">Therapeutic Massage</h3>
-                    </div>
-                    <p class="text-gray-300 mb-6" data-en="Experience therapeutic massage designed to release tension, promote relaxation, and support overall well-being. My massage sessions complement your training or daily life by helping you unwind, reduce stress, and restore balance to body and mind." data-es="Experimenta masajes terapéuticos diseñados para liberar tensiones, promover la relajación y apoyar el bienestar general. Mis sesiones de masaje complementan tu entrenamiento o vida diaria ayudándote a relajarte, reducir el estrés y restaurar el equilibrio entre cuerpo y mente.">
-                        Experience therapeutic massage designed to release tension, promote relaxation, and support overall well-being. My massage sessions complement your training or daily life by helping you unwind, reduce stress, and restore balance to body and mind.
-                    </p>
-                </div>
-                
-                <!-- Nutrition Coaching -->
-                <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-red-600">
-                    <div class="flex items-center mb-6">
-                        <div class="text-red-500 text-4xl mr-4">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white" data-en="Nutrition Coaching" data-es="Asesoramiento Nutricional">Nutrition Coaching</h3>
-                    </div>
-                    <p class="text-gray-300 mb-6" data-en="Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we'll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits." data-es="Asesoramiento nutricional para ayudarte a alcanzar tus objetivos de fitness, ya sea mejorar el rendimiento, gestionar el peso o apoyar el bienestar general. Juntos exploraremos estrategias prácticas basadas en la ciencia que se adapten a tu estilo de vida y preferencias, para que puedas tomar decisiones informadas y construir hábitos duraderos.">
-                        Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we'll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits.
-                    </p>
-                </div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-red-500" data-en="ADDITIONAL" data-es="SERVICIOS"
+            >ADDITIONAL</span
+          >
+          <span class="text-white" data-en="SERVICES" data-es="ADICIONALES"
+            >SERVICES</span
+          >
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Massage Therapy -->
+          <div
+            class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-red-600"
+          >
+            <div class="flex items-center mb-6">
+              <div class="text-red-500 text-4xl mr-4">
+                <i class="fas fa-spa"></i>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white"
+                data-en="Therapeutic Massage"
+                data-es="Masaje Terapéutico"
+              >
+                Therapeutic Massage
+              </h3>
             </div>
-            
-            <div class="mt-12 text-center">
-                <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105" data-en="Book Your Session Now" data-es="Reserva tu Sesión Ahora">
-                    Book Your Session Now
-                </a>
+            <p
+              class="text-gray-300 mb-6"
+              data-en="Experience therapeutic massage designed to release tension, promote relaxation, and support overall well-being. My massage sessions complement your training or daily life by helping you unwind, reduce stress, and restore balance to body and mind."
+              data-es="Experimenta masajes terapéuticos diseñados para liberar tensiones, promover la relajación y apoyar el bienestar general. Mis sesiones de masaje complementan tu entrenamiento o vida diaria ayudándote a relajarte, reducir el estrés y restaurar el equilibrio entre cuerpo y mente."
+            >
+              Experience therapeutic massage designed to release tension,
+              promote relaxation, and support overall well-being. My massage
+              sessions complement your training or daily life by helping you
+              unwind, reduce stress, and restore balance to body and mind.
+            </p>
+          </div>
+
+          <!-- Nutrition Coaching -->
+          <div
+            class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-red-600"
+          >
+            <div class="flex items-center mb-6">
+              <div class="text-red-500 text-4xl mr-4">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white"
+                data-en="Nutrition Coaching"
+                data-es="Asesoramiento Nutricional"
+              >
+                Nutrition Coaching
+              </h3>
             </div>
+            <p
+              class="text-gray-300 mb-6"
+              data-en="Nutrition coaching to help you reach your fitness goals—whether you want to improve performance, manage weight, or support overall wellness. Together, we'll explore practical, science-based strategies that fit your lifestyle and preferences, so you can make informed choices and build lasting habits."
+              data-es="Asesoramiento nutricional para ayudarte a alcanzar tus objetivos de fitness, ya sea mejorar el rendimiento, gestionar el peso o apoyar el bienestar general. Juntos exploraremos estrategias prácticas basadas en la ciencia que se adapten a tu estilo de vida y preferencias, para que puedas tomar decisiones informadas y construir hábitos duraderos."
+            >
+              Nutrition coaching to help you reach your fitness goals—whether
+              you want to improve performance, manage weight, or support overall
+              wellness. Together, we'll explore practical, science-based
+              strategies that fit your lifestyle and preferences, so you can
+              make informed choices and build lasting habits.
+            </p>
+          </div>
         </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="#contact"
+            class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105"
+            data-en="Book Your Session Now"
+            data-es="Reserva tu Sesión Ahora"
+          >
+            Book Your Session Now
+          </a>
+        </div>
+      </div>
     </section>
 
-        <!-- About Section -->
+    <!-- About Section -->
     <section id="about" class="py-20 bg-black">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-red-500" data-en="ABOUT" data-es="SOBRE">ABOUT</span> 
-                <span class="text-white" data-en="ME" data-es="MÍ">ME</span>
-            </h2>
-            
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
-                    <div class="relative overflow-hidden rounded-lg shadow-2xl">
-                        <img src="https://picsum.photos/600/800?random=2" 
-                             alt="Personal Trainer" 
-                             class="w-full h-auto transition duration-500 hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-red-500" data-en="ABOUT" data-es="SOBRE"
+            >ABOUT</span
+          >
+          <span class="text-white" data-en="ME" data-es="MÍ">ME</span>
+        </h2>
+
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2">
+            <div class="relative overflow-hidden rounded-lg shadow-2xl">
+              <img
+                src="https://picsum.photos/600/800?random=2"
+                alt="Personal Trainer"
+                class="w-full h-auto transition duration-500 hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+              ></div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2">
+            <h3
+              class="text-2xl font-bold mb-4 text-red-500"
+              data-en="Reconnecting with Natural Movement"
+              data-es="Reconectando con el Movimiento Natural"
+            >
+              Reconnecting with Natural Movement
+            </h3>
+            <div class="mb-8">
+              <p
+                class="text-gray-300 mb-4"
+                data-en="I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health."
+                data-es="Ofrezco una perspectiva única sobre salud y bienestar, moldeada por una trayectoria profesional que me ha llevado por la biología molecular, la ingeniería de software y ahora el entrenamiento físico y nutricional. En el camino, he vivido y trabajado en países de Europa, África, Asia, Oriente Medio y América del Norte, experiencias que me han dado una profunda apreciación de diferentes culturas, estilos de vida y formas de abordar la salud."
+              >
+                I bring a unique perspective to health and wellness, shaped by a
+                career journey that has taken me through molecular biology,
+                software engineering, and now into fitness and nutrition
+                coaching. Along the way, I've lived and worked in countries
+                across Europe, Africa, Asia, the Middle East, and North
+                America—experiences that have given me a deep appreciation for
+                different cultures, lifestyles, and ways of approaching health.
+              </p>
+              <p
+                class="text-gray-300"
+                data-en="This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives."
+                data-es="Esta diversa experiencia me enseñó a combinar la curiosidad científica con un enfoque práctico y realista. Ya sea en el laboratorio, el mundo tecnológico o el gimnasio, siempre me ha motivado el deseo de entender cómo funcionan las cosas y ayudar a las personas a aplicar ese conocimiento para mejorar sus vidas. Hoy, eso significa apoyar a los clientes en la construcción de hábitos más saludables, sentirse más fuertes en sus cuerpos y encontrar enfoques de fitness y nutrición que realmente se adapten a sus vidas."
+              >
+                This diverse background taught me to combine scientific
+                curiosity with a practical, real-world approach. Whether in the
+                lab, the tech world, or the gym, I've always been driven by a
+                desire to understand how things work and to help people apply
+                that knowledge to improve their lives. Today, that means
+                supporting clients in building healthier habits, feeling
+                stronger in their bodies, and finding approaches to fitness and
+                nutrition that truly fit their lives.
+              </p>
+            </div>
+            <p
+              class="text-gray-300 mb-6"
+              data-en="I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop."
+              data-es="Ayudo a las personas a reconectarse con sus cuerpos a través de un enfoque suave y personalizado del movimiento y el fitness. Mi entrenamiento combina prácticas de movimiento consciente con ejercicio funcional moderno, creando un espacio donde la fuerza, la flexibilidad y la facilidad se desarrollan naturalmente."
+            >
+              I help people reconnect with their bodies through a gentle,
+              personalized approach to movement and fitness. My training blends
+              mindful movement practices with modern functional exercise,
+              creating a space where strength, flexibility, and ease naturally
+              develop.
+            </p>
+            <p
+              class="text-gray-300 mb-6"
+              data-en="I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations."
+              data-es="Creo que el fitness debería ser de apoyo, no intimidante. Mis programas se centran en el movimiento con peso corporal, flujos inspirados en animales y trabajo energético consciente para ayudarte a desarrollar fuerza y movilidad a tu propio ritmo, sin la presión de entrenamientos extremos o expectativas poco realistas."
+            >
+              I believe fitness should feel supportive—not intimidating. My
+              programs focus on bodyweight movement, animal-inspired flows, and
+              mindful energy work to help you build strength and mobility at
+              your own pace, without the pressure of extreme workouts or
+              unrealistic expectations.
+            </p>
+            <div class="mb-6 p-6 bg-gray-900 rounded-lg">
+              <h4
+                class="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-2"
+                data-en="Professional Qualifications"
+                data-es="Cualificaciones Profesionales"
+              >
+                Professional Qualifications
+              </h4>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- First Column -->
+                <div class="space-y-4">
+                  <!-- NASM Certified Personal Trainer -->
+                  <div class="flex items-start">
+                    <div>
+                      <h5 class="text-red-500">
+                        NASM Certified Personal Trainer
+                      </h5>
                     </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4 text-red-500" data-en="Reconnecting with Natural Movement" data-es="Reconectando con el Movimiento Natural">Reconnecting with Natural Movement</h3>
-                    <div class="mb-8">
-                        <p class="text-gray-300 mb-4" data-en="I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health." data-es="Ofrezco una perspectiva única sobre salud y bienestar, moldeada por una trayectoria profesional que me ha llevado por la biología molecular, la ingeniería de software y ahora el entrenamiento físico y nutricional. En el camino, he vivido y trabajado en países de Europa, África, Asia, Oriente Medio y América del Norte, experiencias que me han dado una profunda apreciación de diferentes culturas, estilos de vida y formas de abordar la salud.">
-                            I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health.
-                        </p>
-                        <p class="text-gray-300" data-en="This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives." data-es="Esta diversa experiencia me enseñó a combinar la curiosidad científica con un enfoque práctico y realista. Ya sea en el laboratorio, el mundo tecnológico o el gimnasio, siempre me ha motivado el deseo de entender cómo funcionan las cosas y ayudar a las personas a aplicar ese conocimiento para mejorar sus vidas. Hoy, eso significa apoyar a los clientes en la construcción de hábitos más saludables, sentirse más fuertes en sus cuerpos y encontrar enfoques de fitness y nutrición que realmente se adapten a sus vidas.">
-                            This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives.
-                        </p>
+                  </div>
+
+                  <!-- ACE Nutritional Specialist -->
+                  <div class="flex items-start">
+                    <div>
+                      <h5 class="text-red-500">ACE Nutritional Specialist</h5>
                     </div>
-                    <p class="text-gray-300 mb-6" data-en="I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop." data-es="Ayudo a las personas a reconectarse con sus cuerpos a través de un enfoque suave y personalizado del movimiento y el fitness. Mi entrenamiento combina prácticas de movimiento consciente con ejercicio funcional moderno, creando un espacio donde la fuerza, la flexibilidad y la facilidad se desarrollan naturalmente.">
-                        I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop.
-                    </p>
-                    <p class="text-gray-300 mb-6" data-en="I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations." data-es="Creo que el fitness debería ser de apoyo, no intimidante. Mis programas se centran en el movimiento con peso corporal, flujos inspirados en animales y trabajo energético consciente para ayudarte a desarrollar fuerza y movilidad a tu propio ritmo, sin la presión de entrenamientos extremos o expectativas poco realistas.">
-                        I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations.
-                    </p>
-                    <div class="mb-6 p-6 bg-gray-900 rounded-lg">
-    <h4 class="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-2" data-en="Professional Qualifications" data-es="Cualificaciones Profesionales">Professional Qualifications</h4>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- First Column -->
-        <div class="space-y-4">
-            <!-- NASM Certified Personal Trainer -->
-            <div class="flex items-start">
-                <div>
-                    <h5 class="text-red-500">NASM Certified Personal Trainer</h5>
+                  </div>
+
+                  <!-- ACE Functional Exercise Specialist -->
+                  <div class="flex items-start">
+                    <div>
+                      <h5 class="text-red-500">
+                        ACE Functional Exercise Specialist
+                      </h5>
+                    </div>
+                  </div>
                 </div>
-            </div>
-            
-            <!-- ACE Nutritional Specialist -->
-            <div class="flex items-start">
-                <div>
-                    <h5 class="text-red-500">ACE Nutritional Specialist</h5>
+
+                <!-- Second Column -->
+                <div class="space-y-4">
+                  <!-- ISSA Transformation Specialist -->
+                  <div class="flex items-start">
+                    <div>
+                      <h5 class="text-red-500">
+                        ISSA Transformation Specialist
+                      </h5>
+                    </div>
+                  </div>
+
+                  <!-- ISSA Health Coach -->
+                  <div class="flex items-start">
+                    <div>
+                      <h5 class="text-red-500">ISSA Health Coach</h5>
+                    </div>
+                  </div>
+
+                  <!-- BSc Biology -->
+                  <div class="flex items-start">
+                    <div>
+                      <h5 class="text-red-500">BSc Biology</h5>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            
-            <!-- ACE Functional Exercise Specialist -->
-            <div class="flex items-start">
-                <div>
-                    <h5 class="text-red-500">ACE Functional Exercise Specialist</h5>
-                </div>
-            </div>
+          </div>
         </div>
-        
-        <!-- Second Column -->
-        <div class="space-y-4">
-            <!-- ISSA Transformation Specialist -->
-            <div class="flex items-start">
-                <div>
-                    <h5 class="text-red-500">ISSA Transformation Specialist</h5>
-                </div>
-            </div>
-            
-            <!-- ISSA Health Coach -->
-            <div class="flex items-start">
-                <div>
-                    <h5 class="text-red-500">ISSA Health Coach</h5>
-                </div>
-            </div>
-            
-            <!-- BSc Biology -->
-            <div class="flex items-start">
-                <div>
-                    <h5 class="text-red-500">BSc Biology</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
     <section id="pricing" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-white" data-en="TRAINING" data-es="INVERSIÓN EN">TRAINING</span> 
-                <span class="text-red-500" data-en="INVESTMENT" data-es="FORMACIÓN">INVESTMENT</span>
-            </h2>
-            
-            <!-- Monthly Packages -->
-            <div class="max-w-4xl mx-auto mb-16">
-                <h3 class="text-2xl font-bold mb-6 text-center text-white" data-en="Monthly Packages" data-es="Paquetes Mensuales">Monthly Packages</h3>
-                <div class="overflow-x-visible">
-                    <table class="pricing-table">
-                        <thead>
-                            <tr class="text-white">
-                                <th class="py-3 px-4 text-left">Package</th>
-                                <th class="py-3 px-4 text-center">Sessions/Month</th>
-                                <th class="py-3 px-4 text-center">Price/Month</th>
-                                <th class="py-3 px-4 text-center">Price/Session</th>
-                                <th class="py-3 px-4 text-center">Savings</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Starter -->
-                            <tr>
-                                <td class="font-bold text-white" data-label="Package">Starter</td>
-                                <td class="text-gray-300" data-label="Sessions">1x/week</td>
-                                <td class="text-white font-bold" data-label="Price/Month">€130</td>
-                                <td class="text-gray-300" data-label="Price/Session">€32.50</td>
-                                <td class="text-green-400" data-label="Savings">€10 saved</td>
-                            </tr>
-                            <!-- Progress -->
-                            <tr>
-                                <td class="font-bold text-white" data-label="Package">Progress</td>
-                                <td class="text-gray-300" data-label="Sessions">2x/week</td>
-                                <td class="text-white font-bold" data-label="Price/Month">€240</td>
-                                <td class="text-gray-300" data-label="Price/Session">€30.00</td>
-                                <td class="text-green-400" data-label="Savings">€40 saved</td>
-                            </tr>
-                            <!-- Intensive -->
-                            <tr>
-                                <td class="font-bold text-white" data-label="Package">Intensive</td>
-                                <td class="text-gray-300" data-label="Sessions">3x/week</td>
-                                <td class="text-white font-bold" data-label="Price/Month">€330</td>
-                                <td class="text-gray-300" data-label="Price/Session">€27.50</td>
-                                <td class="text-green-400" data-label="Savings">€90 saved</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="text-gray-400 text-sm mt-2" data-en="* Based on 4 weeks/month" data-es="* Basado en 4 semanas/mes">* Based on 4 weeks/month</p>
-                </div>
-            </div>
-
-            <!-- Flexible Packs -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-                <!-- 5-Session Pack -->
-                <div class="bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700 hover:border-red-500 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-center text-white" data-en="5-Session Pack" data-es="Paquete de 5 Sesiones">5-Session Pack</h3>
-                    <div class="text-red-500 text-4xl font-bold text-center mb-2">€135</div>
-                    <div class="text-gray-300 text-center mb-6" data-en="(€27/session)" data-es="(€27/sesión)">(€27/session)</div>
-                    <ul class="text-gray-300 space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                            <span data-en="Flexible scheduling" data-es="Horario flexible">Flexible scheduling</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                            <span data-en="Use within 2 months" data-es="Usar en 2 meses">Use within 2 months</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                            <span data-en="Save €15 vs single sessions" data-es="Ahorra €15 vs sesiones individuales">Save €15 vs single sessions</span>
-                        </li>
-                    </ul>
-                    <div class="text-center">
-                        <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- 10-Session Pack -->
-                <div class="bg-black p-8 rounded-lg shadow-lg border-2 border-red-500 transform hover:scale-[1.02] transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-center text-white" data-en="10-Session Pack" data-es="Paquete de 10 Sesiones">10-Session Pack</h3>
-                    <div class="text-red-500 text-4xl font-bold text-center mb-2">€250</div>
-                    <div class="text-gray-300 text-center mb-6" data-en="(€25/session)" data-es="(€25/sesión)">(€25/session)</div>
-                    <ul class="text-gray-300 space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                            <span data-en="Flexible scheduling" data-es="Horario flexible">Flexible scheduling</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                            <span data-en="Use within 3 months" data-es="Usar en 3 meses">Use within 3 months</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                            <span data-en="Save €50 vs single sessions" data-es="Ahorra €50 vs sesiones individuales">Save €50 vs single sessions</span>
-                        </li>
-                    </ul>
-                    <div class="text-center">
-                        <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Get Started" data-es="Comenzar">Get Started</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Buddy Training -->
-            <div class="max-w-2xl mx-auto bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700 hover:border-red-500 transition duration-300">
-                <h3 class="text-2xl font-bold mb-4 text-center text-white" data-en="Buddy Training" data-es="Entrenamiento en Pareja">Buddy Training</h3>
-                <div class="text-red-500 text-3xl font-bold text-center mb-6" data-en="+50% for second person" data-es="+50% para segunda persona">+50% for second person</div>
-                <p class="text-gray-300 text-center mb-6" data-en="Train with a friend and split the cost! Perfect for couples, friends, or colleagues who want to train together." data-es="¡Entrena con un amigo y divide el costo! Perfecto para parejas, amigos o colegas que quieran entrenar juntos.">
-                    Train with a friend and split the cost! Perfect for couples, friends, or colleagues who want to train together.
-                </p>
-                <div class="text-center">
-                    <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300" data-en="Contact for Pricing" data-es="Contactar por Precios">Contact for Pricing</a>
-                </div>
-            </div>
-            
-        <!-- Massage Packages Table -->
-<section class="py-12 bg-gray-900">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
-            <span class="text-white" data-en="MASSAGE" data-es="MASAJES">MASSAGE</span> 
-            <span class="text-red-500" data-en="PRICING" data-es="PRECIOS">PRICING</span>
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-white" data-en="TRAINING" data-es="INVERSIÓN EN"
+            >TRAINING</span
+          >
+          <span class="text-red-500" data-en="INVESTMENT" data-es="FORMACIÓN"
+            >INVESTMENT</span
+          >
         </h2>
-        
-        <div class="max-w-md mx-auto bg-black p-8 rounded-lg shadow-lg border-2 border-red-500">
-            <div class="text-center mb-6">
-                <div class="text-red-500 text-5xl font-bold mb-2">€35</div>
-                <p class="text-gray-300 text-xl" data-en="per session" data-es="por sesión">per session</p>
-            </div>
-            
-            <ul class="text-gray-300 space-y-3 mb-6">
-                <li class="flex items-start">
-                    <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                    <span data-en="60 minute therapeutic massage" data-es="Masaje terapéutico de 60 minutos">60 minute therapeutic massage</span>
-                </li>
-                <li class="flex items-start">
-                    <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
-                    <span data-en="Flexible scheduling" data-es="Horario flexible">Flexible scheduling</span>
-                </li>
-            </ul>
-            
-            <div class="text-center">
-                <a href="#contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded transition duration-300" data-en="Book a Massage" data-es="Reservar Masaje">Book a Massage</a>
-            </div>
-        </div>
-    </div>
-</section>
 
+        <div
+          class="max-w-sm mx-auto bg-black p-6 rounded-lg shadow-lg border-2 border-gray-700 mb-8 text-center"
+        >
+          <h3
+            class="text-xl font-bold mb-2 text-white"
+            data-en="Single Training Session"
+            data-es="Sesión Individual de Entrenamiento"
+          >
+            Single Training Session
+          </h3>
+          <div class="text-red-500 text-4xl font-bold mb-2">€30</div>
+          <p
+            class="text-gray-300 mb-4"
+            data-en="One-time session with no commitment"
+            data-es="Sesión única sin compromiso"
+          >
+            One-time session with no commitment
+          </p>
+          <a
+            href="#contact"
+            class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+            data-en="Book Now"
+            data-es="Reservar Ahora"
+            >Book Now</a
+          >
         </div>
+
+        <!-- Monthly Packages -->
+        <div class="max-w-4xl mx-auto mb-16">
+          <h3
+            class="text-2xl font-bold mb-6 text-center text-white"
+            data-en="Monthly Packages"
+            data-es="Paquetes Mensuales"
+          >
+            Monthly Packages
+          </h3>
+          <div class="overflow-x-visible">
+            <table class="pricing-table">
+              <thead>
+                <tr class="text-white">
+                  <th class="py-3 px-4 text-left">Package</th>
+                  <th class="py-3 px-4 text-center">Sessions/Month</th>
+                  <th class="py-3 px-4 text-center">Price/Month</th>
+                  <th class="py-3 px-4 text-center">Price/Session</th>
+                  <th class="py-3 px-4 text-center">Savings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Starter -->
+                <tr>
+                  <td class="font-bold text-white" data-label="Package">
+                    Starter
+                  </td>
+                  <td class="text-gray-300" data-label="Sessions">1x/week</td>
+                  <td class="text-white font-bold" data-label="Price/Month">
+                    €110
+                  </td>
+                  <td class="text-gray-300" data-label="Price/Session">
+                    €27.50
+                  </td>
+                  <td class="text-green-400" data-label="Savings">€10 saved</td>
+                </tr>
+                <!-- Progress -->
+                <tr>
+                  <td class="font-bold text-white" data-label="Package">
+                    Progress
+                  </td>
+                  <td class="text-gray-300" data-label="Sessions">2x/week</td>
+                  <td class="text-white font-bold" data-label="Price/Month">
+                    €200
+                  </td>
+                  <td class="text-gray-300" data-label="Price/Session">
+                    €25.00
+                  </td>
+                  <td class="text-green-400" data-label="Savings">€40 saved</td>
+                </tr>
+                <!-- Intensive -->
+                <tr>
+                  <td class="font-bold text-white" data-label="Package">
+                    Intensive
+                  </td>
+                  <td class="text-gray-300" data-label="Sessions">3x/week</td>
+                  <td class="text-white font-bold" data-label="Price/Month">
+                    €270
+                  </td>
+                  <td class="text-gray-300" data-label="Price/Session">
+                    €22.50
+                  </td>
+                  <td class="text-green-400" data-label="Savings">€90 saved</td>
+                </tr>
+              </tbody>
+            </table>
+            <p
+              class="text-gray-400 text-sm mt-2"
+              data-en="* Based on 4 weeks/month"
+              data-es="* Basado en 4 semanas/mes"
+            >
+              * Based on 4 weeks/month
+            </p>
+          </div>
+        </div>
+
+        <!-- Flexible Packs -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+          <!-- 5-Session Pack -->
+          <div
+            class="bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700 hover:border-red-500 transition duration-300"
+          >
+            <h3
+              class="text-2xl font-bold mb-4 text-center text-white"
+              data-en="5-Session Pack"
+              data-es="Paquete de 5 Sesiones"
+            >
+              5-Session Pack
+            </h3>
+            <div class="text-red-500 text-4xl font-bold text-center mb-2">
+              €135
+            </div>
+            <div
+              class="text-gray-300 text-center mb-6"
+              data-en="(€27/session)"
+              data-es="(€27/sesión)"
+            >
+              (€27/session)
+            </div>
+            <ul class="text-gray-300 space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                <span data-en="Flexible scheduling" data-es="Horario flexible"
+                  >Flexible scheduling</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                <span data-en="Use within 2 months" data-es="Usar en 2 meses"
+                  >Use within 2 months</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                <span
+                  data-en="Save €15 vs single sessions"
+                  data-es="Ahorra €15 vs sesiones individuales"
+                  >Save €15 vs single sessions</span
+                >
+              </li>
+            </ul>
+            <div class="text-center">
+              <a
+                href="#contact"
+                class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300"
+                data-en="Book Now"
+                data-es="Reservar Ahora"
+                >Book Now</a
+              >
+            </div>
+          </div>
+
+          <!-- 10-Session Pack -->
+          <div
+            class="bg-black p-8 rounded-lg shadow-lg border-2 border-red-500 transform hover:scale-[1.02] transition duration-300"
+          >
+            <h3
+              class="text-2xl font-bold mb-4 text-center text-white"
+              data-en="10-Session Pack"
+              data-es="Paquete de 10 Sesiones"
+            >
+              10-Session Pack
+            </h3>
+            <div class="text-red-500 text-4xl font-bold text-center mb-2">
+              €250
+            </div>
+            <div
+              class="text-gray-300 text-center mb-6"
+              data-en="(€25/session)"
+              data-es="(€25/sesión)"
+            >
+              (€25/session)
+            </div>
+            <ul class="text-gray-300 space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                <span data-en="Flexible scheduling" data-es="Horario flexible"
+                  >Flexible scheduling</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                <span data-en="Use within 3 months" data-es="Usar en 3 meses"
+                  >Use within 3 months</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                <span
+                  data-en="Save €50 vs single sessions"
+                  data-es="Ahorra €50 vs sesiones individuales"
+                  >Save €50 vs single sessions</span
+                >
+              </li>
+            </ul>
+            <div class="text-center">
+              <a
+                href="#contact"
+                class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300"
+                data-en="Get Started"
+                data-es="Comenzar"
+                >Get Started</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Buddy Training -->
+        <div
+          class="max-w-2xl mx-auto bg-black p-8 rounded-lg shadow-lg border-2 border-gray-700 hover:border-red-500 transition duration-300"
+        >
+          <h3
+            class="text-2xl font-bold mb-4 text-center text-white"
+            data-en="Buddy Training"
+            data-es="Entrenamiento en Pareja"
+          >
+            Buddy Training
+          </h3>
+          <div
+            class="text-red-500 text-3xl font-bold text-center mb-6"
+            data-en="+50% for second person"
+            data-es="+50% para segunda persona"
+          >
+            +50% for second person
+          </div>
+          <p
+            class="text-gray-300 text-center mb-6"
+            data-en="Train with a friend and split the cost! Perfect for couples, friends, or colleagues who want to train together."
+            data-es="¡Entrena con un amigo y divide el costo! Perfecto para parejas, amigos o colegas que quieran entrenar juntos."
+          >
+            Train with a friend and split the cost! Perfect for couples,
+            friends, or colleagues who want to train together.
+          </p>
+          <div class="text-center">
+            <a
+              href="#contact"
+              class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300"
+              data-en="Contact for Pricing"
+              data-es="Contactar por Precios"
+              >Contact for Pricing</a
+            >
+          </div>
+        </div>
+
+        <!-- Massage Packages Table -->
+        <section class="py-12 bg-gray-900">
+          <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+              <span class="text-white" data-en="MASSAGE" data-es="MASAJES"
+                >MASSAGE</span
+              >
+              <span class="text-red-500" data-en="PRICING" data-es="PRECIOS"
+                >PRICING</span
+              >
+            </h2>
+
+            <div
+              class="max-w-md mx-auto bg-black p-8 rounded-lg shadow-lg border-2 border-red-500"
+            >
+              <div class="text-center mb-6">
+                <div class="text-red-500 text-5xl font-bold mb-2">€35</div>
+                <p
+                  class="text-gray-300 text-xl"
+                  data-en="per session"
+                  data-es="por sesión"
+                >
+                  per session
+                </p>
+              </div>
+
+              <ul class="text-gray-300 space-y-3 mb-6">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                  <span
+                    data-en="60 minute therapeutic massage"
+                    data-es="Masaje terapéutico de 60 minutos"
+                    >60 minute therapeutic massage</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-red-500 mr-2 mt-1"></i>
+                  <span data-en="Flexible scheduling" data-es="Horario flexible"
+                    >Flexible scheduling</span
+                  >
+                </li>
+              </ul>
+
+              <div class="text-center">
+                <a
+                  href="#contact"
+                  class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded transition duration-300"
+                  data-en="Book a Massage"
+                  data-es="Reservar Masaje"
+                  >Book a Massage</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </section>
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-black">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="text-red-500" data-en="GET" data-es="CONTÁCTAME">GET</span> 
-                <span class="text-white" data-en="IN TOUCH" data-es="HOY">IN TOUCH</span>
-            </h2>
-            
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 mb-2" data-en="Your Name" data-es="Tu Nombre">Your Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 mb-2" data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-gray-300 mb-2" data-en="Subject" data-es="Asunto">Subject</label>
-                            <select id="subject" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white">
-                                <option value="" data-en="Select an option" data-es="Selecciona una opción">Select an option</option>
-                                <option value="personal" data-en="Personal Training" data-es="Entrenamiento Personal">Personal Training</option>
-                                <option value="group" data-en="Group Classes" data-es="Clases Grupales">Group Classes</option>
-                                <option value="massage" data-en="Massage Therapy" data-es="Terapia de Masaje">Massage Therapy</option>
-                                <option value="nutrition" data-en="Nutrition Coaching" data-es="Asesoramiento Nutricional">Nutrition Coaching</option>
-                                <option value="other" data-en="Other Inquiry" data-es="Otra Consulta">Other Inquiry</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-300 mb-2" data-en="Your Message" data-es="Tu Mensaje">Your Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"></textarea>
-                        </div>
-                        <a id="mailto-link" class="bg-primary hover:bg-red-600 text-white font-bold py-3 px-6 rounded transition duration-300 inline-block cursor-pointer"  data-en="Send Message" data-es="Enviar Mensaje">
-                            Send Message
-                        </a>
-                    </form>
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-red-500" data-en="GET" data-es="CONTÁCTAME"
+            >GET</span
+          >
+          <span class="text-white" data-en="IN TOUCH" data-es="HOY"
+            >IN TOUCH</span
+          >
+        </h2>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+          <div class="lg:w-1/2">
+            <form class="space-y-6">
+              <div>
+                <label
+                  for="name"
+                  class="block text-gray-300 mb-2"
+                  data-en="Your Name"
+                  data-es="Tu Nombre"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-gray-300 mb-2"
+                  data-en="Email Address"
+                  data-es="Correo Electrónico"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"
+                />
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block text-gray-300 mb-2"
+                  data-en="Subject"
+                  data-es="Asunto"
+                  >Subject</label
+                >
+                <select
+                  id="subject"
+                  class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"
+                >
+                  <option
+                    value=""
+                    data-en="Select an option"
+                    data-es="Selecciona una opción"
+                  >
+                    Select an option
+                  </option>
+                  <option
+                    value="personal"
+                    data-en="Personal Training"
+                    data-es="Entrenamiento Personal"
+                  >
+                    Personal Training
+                  </option>
+                  <option
+                    value="group"
+                    data-en="Group Classes"
+                    data-es="Clases Grupales"
+                  >
+                    Group Classes
+                  </option>
+                  <option
+                    value="massage"
+                    data-en="Massage Therapy"
+                    data-es="Terapia de Masaje"
+                  >
+                    Massage Therapy
+                  </option>
+                  <option
+                    value="nutrition"
+                    data-en="Nutrition Coaching"
+                    data-es="Asesoramiento Nutricional"
+                  >
+                    Nutrition Coaching
+                  </option>
+                  <option
+                    value="other"
+                    data-en="Other Inquiry"
+                    data-es="Otra Consulta"
+                  >
+                    Other Inquiry
+                  </option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-300 mb-2"
+                  data-en="Your Message"
+                  data-es="Tu Mensaje"
+                  >Your Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-red-500 text-white"
+                ></textarea>
+              </div>
+              <a
+                id="mailto-link"
+                class="bg-primary hover:bg-red-600 text-white font-bold py-3 px-6 rounded transition duration-300 inline-block cursor-pointer"
+                data-en="Send Message"
+                data-es="Enviar Mensaje"
+              >
+                Send Message
+              </a>
+            </form>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="bg-gray-900 p-8 rounded-lg h-full">
+              <h3
+                class="text-2xl font-bold mb-6 text-white"
+                data-en="Contact Information"
+                data-es="Información de Contacto"
+              >
+                Contact Information
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="text-red-500 text-xl mr-4 mt-1">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-bold text-white"
+                      data-en="Phone"
+                      data-es="Teléfono"
+                    >
+                      Phone
+                    </h4>
+                    <p class="text-gray-300">616 877 454</p>
+                  </div>
                 </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-gray-900 p-8 rounded-lg h-full">
-                        <h3 class="text-2xl font-bold mb-6 text-white" data-en="Contact Information" data-es="Información de Contacto">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="text-red-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white" data-en="Phone" data-es="Teléfono">Phone</h4>
-                                    <p class="text-gray-300">616 877 454</p>
-                                </div>
-                            </div>
 
-                            <!-- Location Section -->
-                            <div class="flex items-start">
-                                <div class="text-red-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white" data-en="Location" data-es="Ubicación">Location</h4>
-                                    <p class="text-gray-300" data-en="Alcobendas, Madrid, Spain" data-es="Alcobendas, Madrid, España">Alcobendas, Spain</p>
-                                </div>
-                            </div>
-                                <div>
-                           <a href="https://wa.me/34616877454" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center">
-                                <i class="fab fa-whatsapp mr-2 text-xl"></i>
-                                WhatsApp
-                            </a>
-                                </div>
-                            </div>
-
-
-                            <!-- Map -->
-                            <div class="mt-6 rounded-lg overflow-hidden">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6070.489257579963!2d-3.641738123730102!3d40.5474792713645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422f39709b9d81%3A0x9a0a0a2d4a0a0a0a!2sAlcobendas%2C%20Madrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
-                                    width="100%" 
-                                    height="300" 
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy"
-                                    title="Google Maps location of Alcobendas, Spain">
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Location Section -->
+                <div class="flex items-start">
+                  <div class="text-red-500 text-xl mr-4 mt-1">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-bold text-white"
+                      data-en="Location"
+                      data-es="Ubicación"
+                    >
+                      Location
+                    </h4>
+                    <p
+                      class="text-gray-300"
+                      data-en="Alcobendas, Madrid, Spain"
+                      data-es="Alcobendas, Madrid, España"
+                    >
+                      Alcobendas, Spain
+                    </p>
+                  </div>
                 </div>
+                <div>
+                  <a
+                    href="https://wa.me/34616877454"
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center"
+                  >
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <!-- Map -->
+              <div class="mt-6 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6070.489257579963!2d-3.641738123730102!3d40.5474792713645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422f39709b9d81%3A0x9a0a0a2d4a0a0a0a!2sAlcobendas%2C%20Madrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="300"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  title="Google Maps location of Alcobendas, Spain"
+                >
+                </iframe>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-2xl font-bold text-red-500 mb-4 md:mb-0">
-                    <span class="text-white" data-en="TRAIN WITH" data-es="ENTRENA CON">TRAIN WITH</span>
-                    <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span> 
-                </div>
-              <!-- Certification Badges -->
-                    <div class="flex justify-center mt-6 space-x-4">
-                        <img src="./docs/assets/images/NASM.gif" 
-                             alt="NASM Certified Personal Trainer" 
-                             class="h-16 w-auto">
-                        <img src="./docs/assets/images/ISSA.gif" 
-                             alt="ISSA Certified Personal Trainer" 
-                             class="h-16 w-auto">
-                    </div> 
-                <div class="text-gray-400 text-sm">
-                    &copy; 2025 Kalistheniks. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span>
-                </div>
-            </div>
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-2xl font-bold text-red-500 mb-4 md:mb-0">
+            <span class="text-white" data-en="TRAIN WITH" data-es="ENTRENA CON"
+              >TRAIN WITH</span
+            >
+            <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span>
+          </div>
+          <!-- Certification Badges -->
+          <div class="flex justify-center mt-6 space-x-4">
+            <img
+              src="./docs/assets/images/NASM.gif"
+              alt="NASM Certified Personal Trainer"
+              class="h-16 w-auto"
+            />
+            <img
+              src="./docs/assets/images/ISSA.gif"
+              alt="ISSA Certified Personal Trainer"
+              class="h-16 w-auto"
+            />
+          </div>
+          <div class="text-gray-400 text-sm">
+            &copy; 2025 Kalistheniks.
+            <span
+              data-en="All rights reserved."
+              data-es="Todos los derechos reservados."
+              >All rights reserved.</span
+            >
+          </div>
         </div>
+      </div>
     </footer>
-<a href="https://wa.me/34616877454" class="whatsapp-float" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
+    <a
+      href="https://wa.me/34616877454"
+      class="whatsapp-float"
+      aria-label="WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
     <script>
-        // Language toggle functionality
-       // Language toggle functionality
-    const languageToggle = document.getElementById('language-toggle');
-    const elements = document.querySelectorAll('[data-en], [data-es]');
+      // Language toggle functionality
+      // Language toggle functionality
+      const languageToggle = document.getElementById("language-toggle");
+      const elements = document.querySelectorAll("[data-en], [data-es]");
 
-    // Check for saved language preference
-    const currentLanguage = localStorage.getItem('language') || 'en';
-    if (currentLanguage === 'es') {
+      // Check for saved language preference
+      const currentLanguage = localStorage.getItem("language") || "en";
+      if (currentLanguage === "es") {
         languageToggle.checked = true;
         toggleLanguage();
-    }
+      }
 
-    languageToggle.addEventListener('change', toggleLanguage);
+      languageToggle.addEventListener("change", toggleLanguage);
 
-    function toggleLanguage() {
+      function toggleLanguage() {
         const isSpanish = languageToggle.checked;
-        const language = isSpanish ? 'es' : 'en';
-        
+        const language = isSpanish ? "es" : "en";
+
         // Save preference to localStorage
-        localStorage.setItem('language', language);
-        
+        localStorage.setItem("language", language);
+
         // Update all elements with data attributes
-        elements.forEach(element => {
-            const text = element.getAttribute(`data-${language}`);
-            if (text) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = text;
-                } else if (element.tagName === 'OPTION') {
-                    element.textContent = text;
-                } else {
-                    element.textContent = text;
-                }
+        elements.forEach((element) => {
+          const text = element.getAttribute(`data-${language}`);
+          if (text) {
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+              element.placeholder = text;
+            } else if (element.tagName === "OPTION") {
+              element.textContent = text;
+            } else {
+              element.textContent = text;
             }
+          }
         });
-    }
+      }
 
-    // Rest of the script remains the same
-    // Mobile menu toggle
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-            
-            // Scroll to target
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
+      // Rest of the script remains the same
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          mobileMenu.classList.toggle("hidden");
         });
-    });
-    
-    // Change navbar background on scroll
-    window.addEventListener('scroll', function() {
-        const nav = document.querySelector('nav');
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById("mobile-menu");
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+          }
+
+          // Scroll to target
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Change navbar background on scroll
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
         if (window.scrollY > 50) {
-            nav.classList.add('bg-black');
-            nav.classList.remove('bg-black/90');
+          nav.classList.add("bg-black");
+          nav.classList.remove("bg-black/90");
         } else {
-            nav.classList.remove('bg-black');
-            nav.classList.add('bg-black/90');
+          nav.classList.remove("bg-black");
+          nav.classList.add("bg-black/90");
         }
-    });
+      });
 
-    document.getElementById('mailto-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        const subject = `Training Inquiry from ${name}`;
-        // Use actual line breaks instead of encoded characters
-        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-        
-        window.location.href = `mailto:ramin.blair@tutanota.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
+      document
+        .getElementById("mailto-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
 
-        document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.hero-slide');
-        const indicators = document.querySelectorAll('.slide-indicator');
+          const subject = `Training Inquiry from ${name}`;
+          // Use actual line breaks instead of encoded characters
+          const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+          window.location.href = `mailto:ramin.blair@tutanota.com?subject=${encodeURIComponent(
+            subject
+          )}&body=${encodeURIComponent(body)}`;
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".hero-slide");
+        const indicators = document.querySelectorAll(".slide-indicator");
         let currentSlide = 0;
         const slideCount = slides.length;
-        
+
         // Function to show a specific slide
         function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? '1' : '0';
-            });
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('bg-opacity-100', i === index);
-                indicator.classList.toggle('bg-opacity-50', i !== index);
-            });
-            currentSlide = index;
+          slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? "1" : "0";
+          });
+          indicators.forEach((indicator, i) => {
+            indicator.classList.toggle("bg-opacity-100", i === index);
+            indicator.classList.toggle("bg-opacity-50", i !== index);
+          });
+          currentSlide = index;
         }
-        
+
         // Set up click handlers for indicators
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => showSlide(index));
+          indicator.addEventListener("click", () => showSlide(index));
         });
-        
+
         // Auto-advance slides every 5 seconds
         function nextSlide() {
-            showSlide((currentSlide + 1) % slideCount);
+          showSlide((currentSlide + 1) % slideCount);
         }
         let slideInterval = setInterval(nextSlide, 5000);
-        
+
         // Pause on hover
-        const hero = document.getElementById('home');
-        hero.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        hero.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(nextSlide, 5000);
+        const hero = document.getElementById("home");
+        hero.addEventListener("mouseenter", () => clearInterval(slideInterval));
+        hero.addEventListener("mouseleave", () => {
+          slideInterval = setInterval(nextSlide, 5000);
         });
-        
+
         // Initialize first slide
         showSlide(0);
-    });
+      });
     </script>
-</body>
+  </body>
 </html>
