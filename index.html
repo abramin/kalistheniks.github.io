@@ -224,6 +224,23 @@
           display: none;
         }
       }
+
+      .cert-badge {
+        width: 48px;
+        height: 48px;
+        background: white;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+      }
+
+      .cert-badge img {
+        max-height: 32px;
+        max-width: 100%;
+        height: auto;
+      }
     </style>
   </head>
   <body class="bg-black text-white font-sans">
@@ -1834,29 +1851,41 @@
             <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span>
           </div>
 
-          <!-- Certification Badges - Now centered and full width on mobile -->
+          <!-- Certification Badges - Now consistent sizing -->
           <div class="w-full flex justify-center space-x-4 md:w-auto md:mt-0">
-            <img
-              src="./docs/assets/images/NASM.gif"
-              alt="NASM Certified Personal Trainer"
-              class="h-12 w-auto md:h-16"
-              loading="lazy"
-            />
-            <img
-              src="./docs/assets/images/ISSA.gif"
-              alt="ISSA Certified Trainer"
-              class="h-12 w-auto md:h-16"
-              loading="lazy"
-            />
-            <img
-              src="./docs/assets/images/ACE.svg"
-              alt="ACE Certified Specialist"
-              class="h-12 w-auto md:h-16"
-              loading="lazy"
-            />
+            <div
+              class="bg-white p-1 rounded w-12 h-12 flex items-center justify-center"
+            >
+              <img
+                src="./docs/assets/images/NASM.gif"
+                alt="NASM Certified Personal Trainer"
+                class="h-8 w-auto max-w-full"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="bg-white p-1 rounded w-12 h-12 flex items-center justify-center"
+            >
+              <img
+                src="./docs/assets/images/ISSA.gif"
+                alt="ISSA Certified Trainer"
+                class="h-8 w-auto max-w-full"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="bg-white p-1 rounded w-12 h-12 flex items-center justify-center"
+            >
+              <img
+                src="./docs/assets/images/ACE.svg"
+                alt="ACE Certified Specialist"
+                class="h-8 w-auto max-w-full"
+                loading="lazy"
+              />
+            </div>
           </div>
 
-          <!-- Copyright - Now centered and full width on mobile -->
+          <!-- Copyright -->
           <div class="text-gray-400 text-sm text-center w-full md:w-auto">
             &copy; 2025 Kalistheniks.
             <span
