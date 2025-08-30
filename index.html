@@ -711,58 +711,77 @@
     </section>
     <section class="py-12 bg-black">
       <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto p-6 bg-gray-900 rounded-lg">
-          <h3
-            class="text-2xl font-bold mb-4 text-white"
-            data-en="Fully Equipped Training Space"
-            data-es="Espacio de Entrenamiento Completamente Equipado"
-          >
-            Fully Equipped Training Space
-          </h3>
-          <p
-            class="text-gray-300 mb-6"
-            data-en="Train in my dedicated fitness space featuring professional-grade equipment:"
-            data-es="Entrena en mi espacio dedicado al fitness que cuenta con equipos profesionales:"
-          >
-            Train in my dedicated fitness space featuring professional-grade
-            equipment:
-          </p>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center">
-              <i class="fas fa-check text-red-500 mr-3"></i>
-              <span data-en="Parallel Bars" data-es="Barras Paralelas"
-                >Parallel Bars</span
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <!-- Gym Photo -->
+          <div class="lg:w-1/2">
+            <img
+              src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80"
+              alt="Modern gym with calisthenics equipment including pull-up bars, parallel bars and gymnastic rings"
+              class="w-full h-auto rounded-lg shadow-xl"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Equipment List -->
+          <div class="lg:w-1/2">
+            <div class="p-6 bg-gray-900 rounded-lg">
+              <h3
+                class="text-2xl font-bold mb-4 text-white"
+                data-en="Fully Equipped Training Space"
+                data-es="Espacio de Entrenamiento Completamente Equipado"
               >
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-check text-red-500 mr-3"></i>
-              <span data-en="Gymnastic Rings" data-es="Anillas Gimnásticas"
-                >Gymnastic Rings</span
+                Fully Equipped Training Space
+              </h3>
+              <p
+                class="text-gray-300 mb-6"
+                data-en="Train in my dedicated fitness space featuring professional-grade equipment:"
+                data-es="Entrena en mi espacio dedicado al fitness que cuenta con equipos profesionales:"
               >
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-check text-red-500 mr-3"></i>
-              <span data-en="Pull-Up Station" data-es="Estación de Dominadas"
-                >Pull-Up Station</span
-              >
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-check text-red-500 mr-3"></i>
-              <span data-en="Cardio Equipment" data-es="Equipo de Cardio"
-                >Cardio Equipment</span
-              >
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-check text-red-500 mr-3"></i>
-              <span data-en="Resistance Bands" data-es="Bandas de Resistencia"
-                >Resistance Bands</span
-              >
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-check text-red-500 mr-3"></i>
-              <span data-en="Free Weights" data-es="Pesas Libres"
-                >Free Weights</span
-              >
+                Train in my dedicated fitness space featuring professional-grade
+                equipment:
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-red-500 mr-3"></i>
+                  <span data-en="Parallel Bars" data-es="Barras Paralelas"
+                    >Parallel Bars</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-red-500 mr-3"></i>
+                  <span data-en="Gymnastic Rings" data-es="Anillas Gimnásticas"
+                    >Gymnastic Rings</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-red-500 mr-3"></i>
+                  <span
+                    data-en="Pull-Up Station"
+                    data-es="Estación de Dominadas"
+                    >Pull-Up Station</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-red-500 mr-3"></i>
+                  <span data-en="Cardio Equipment" data-es="Equipo de Cardio"
+                    >Cardio Equipment</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-red-500 mr-3"></i>
+                  <span
+                    data-en="Resistance Bands"
+                    data-es="Bandas de Resistencia"
+                    >Resistance Bands</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-red-500 mr-3"></i>
+                  <span data-en="Free Weights" data-es="Pesas Libres"
+                    >Free Weights</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -935,11 +954,11 @@
               your own pace, without the pressure of extreme workouts or
               unrealistic expectations.
             </p>
-            <div class="mb-6 p-6 bg-gray-900 rounded-lg">
+            <div class="mb-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
               <h4
-                class="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-2"
+                class="text-2xl font-bold mb-6 text-white border-b border-red-500 pb-2"
                 data-en="Professional Qualifications"
-                data-es="Cualificaciones Profesionales"
+                data-es="Certificaciones Profesionales"
               >
                 Professional Qualifications
               </h4>
@@ -948,27 +967,68 @@
                 <!-- First Column -->
                 <div class="space-y-4">
                   <!-- NASM Certified Personal Trainer -->
-                  <div class="flex items-start">
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/NASM.gif"
+                        alt="NASM Certified Personal Trainer"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
                     <div>
-                      <h5 class="text-red-500">
-                        NASM Certified Personal Trainer
+                      <h5 class="font-bold text-white">
+                        Certified Personal Trainer
                       </h5>
+                      <p class="text-gray-300 text-sm">
+                        National Academy of Sports Medicine
+                      </p>
                     </div>
                   </div>
 
                   <!-- ACE Nutritional Specialist -->
-                  <div class="flex items-start">
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ACE.svg"
+                        alt="ACE Nutritional Specialist"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
                     <div>
-                      <h5 class="text-red-500">ACE Nutritional Specialist</h5>
+                      <h5 class="font-bold text-white">
+                        Nutritional Specialist
+                      </h5>
+                      <p class="text-gray-300 text-sm">
+                        American Council on Exercise
+                      </p>
                     </div>
                   </div>
 
                   <!-- ACE Functional Exercise Specialist -->
-                  <div class="flex items-start">
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ACE.svg"
+                        alt="ACE Functional Exercise Specialist"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
                     <div>
-                      <h5 class="text-red-500">
-                        ACE Functional Exercise Specialist
+                      <h5 class="font-bold text-white">
+                        Functional Exercise Specialist
                       </h5>
+                      <p class="text-gray-300 text-sm">
+                        American Council on Exercise
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -976,25 +1036,62 @@
                 <!-- Second Column -->
                 <div class="space-y-4">
                   <!-- ISSA Transformation Specialist -->
-                  <div class="flex items-start">
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ISSA.gif"
+                        alt="ISSA Transformation Specialist"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
                     <div>
-                      <h5 class="text-red-500">
-                        ISSA Transformation Specialist
+                      <h5 class="font-bold text-white">
+                        Transformation Specialist
                       </h5>
+                      <p class="text-gray-300 text-sm">
+                        International Sports Sciences Association
+                      </p>
                     </div>
                   </div>
 
                   <!-- ISSA Health Coach -->
-                  <div class="flex items-start">
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ISSA.gif"
+                        alt="ISSA Health Coach"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
                     <div>
-                      <h5 class="text-red-500">ISSA Health Coach</h5>
+                      <h5 class="font-bold text-white">ISSA Health Coach</h5>
+                      <p class="text-gray-300 text-sm">
+                        International Sports Sciences Association
+                      </p>
                     </div>
                   </div>
 
                   <!-- BSc Biology -->
-                  <div class="flex items-start">
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/UBC.svg"
+                        alt="BSc Biology"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
                     <div>
-                      <h5 class="text-red-500">BSc Biology</h5>
+                      <h5 class="font-bold text-white">Bachelor of Science - Biology</h5>
+                      <p class="text-gray-300 text-sm">University of British Columbia</p>
                     </div>
                   </div>
                 </div>
@@ -1437,7 +1534,7 @@
               </div>
               <a
                 id="mailto-link"
-                class="bg-primary hover:bg-red-600 text-white font-bold py-3 px-6 rounded transition duration-300 inline-block cursor-pointer"
+                class="bg-primary bg-gray-900 hover:bg-red-600 text-white font-bold py-3 px-6 rounded transition duration-300 inline-block cursor-pointer"
                 data-en="Send Message"
                 data-es="Enviar Mensaje"
               >
@@ -1539,12 +1636,17 @@
           <div class="flex justify-center mt-6 space-x-4">
             <img
               src="./docs/assets/images/NASM.gif"
-              alt="NASM Certified Personal Trainer"
+              alt="NASM logo"
               class="h-16 w-auto"
             />
             <img
               src="./docs/assets/images/ISSA.gif"
-              alt="ISSA Certified Personal Trainer"
+              alt="ISSA logo"
+              class="h-16 w-auto"
+            />
+            <img
+              src="./docs/assets/images/ACE.SVG"
+              alt="ACE logo"
               class="h-16 w-auto"
             />
           </div>
