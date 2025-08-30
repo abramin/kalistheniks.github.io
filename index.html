@@ -23,25 +23,6 @@
         transform: scale(1.2);
       }
 
-      .nav-link {
-        position: relative;
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: #ef4444;
-        transition: width 0.3s ease;
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
       .training-icon {
         transition: transform 0.3s ease;
       }
@@ -59,8 +40,8 @@
       .language-toggle {
         position: relative;
         display: inline-block;
-        width: 60px;
-        height: 30px;
+        width: 50px;
+        height: 26px;
       }
 
       .language-toggle input {
@@ -84,16 +65,13 @@
       .slider:before {
         position: absolute;
         content: "";
-        height: 22px;
-        width: 22px;
+        height: 18px;
+        width: 18px;
         left: 4px;
         bottom: 4px;
         background-color: white;
         transition: 0.4s;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         background-size: cover;
         background-image: url("https://flagcdn.com/w20/gb.png");
         background-position: center;
@@ -105,15 +83,54 @@
 
       input:checked + .slider:before {
         background-image: url("https://flagcdn.com/w20/es.png");
-        transform: translateX(30px);
+        transform: translateX(24px);
       }
 
       .flag-label {
         display: inline-block;
-        width: 38px;
-        height: 20px;
+        width: 20px;
+        height: 15px;
         background-size: contain;
-        margin: 0 5px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      /* Enhanced Nav Links */
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ef4444;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 60%;
+      }
+
+      .nav-link:hover {
+        transform: translateY(-2px);
+      }
+      .language-toggle {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+      }
+
+      .language-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
       }
 
       .hidden-language {
@@ -211,9 +228,10 @@
   </head>
   <body class="bg-black text-white font-sans">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-black/90 z-50 shadow-lg">
-      <div class="container mx-auto px-6 py-4">
+    <nav class="fixed w-full bg-black/90 z-50 shadow-lg backdrop-blur-sm">
+      <div class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex items-center justify-between">
+          <!-- Logo -->
           <div class="text-2xl font-bold text-red-500">
             <span class="text-white" data-en="TRAIN WITH" data-es="ENTRENA CON"
               >TRAIN WITH</span
@@ -221,19 +239,19 @@
             <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span>
           </div>
 
-          <div class="flex items-center space-x-6">
-            <!-- Language Toggle -->
+          <div class="flex items-center space-x-4 sm:space-x-6">
+            <!-- Improved Language Toggle -->
             <div class="flex items-center">
               <span
-                class="flag-label"
+                class="hidden sm:inline-block flag-label"
                 style="background-image: url('https://flagcdn.com/w20/gb.png')"
               ></span>
-              <label class="language-toggle mx-2">
+              <label class="language-toggle mx-1 sm:mx-2">
                 <input type="checkbox" id="language-toggle" />
                 <span class="slider"></span>
               </label>
               <span
-                class="flag-label"
+                class="hidden sm:inline-block flag-label"
                 style="background-image: url('https://flagcdn.com/w20/es.png')"
               ></span>
             </div>
@@ -241,51 +259,63 @@
             <!-- Mobile menu button -->
             <div class="md:hidden">
               <button id="menu-toggle" class="text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
               </button>
             </div>
           </div>
 
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex space-x-8">
+          <!-- Enhanced Desktop Menu -->
+          <div class="hidden md:flex space-x-2 sm:space-x-4">
             <a
               href="#home"
-              class="nav-link text-white hover:text-red-500"
+              class="nav-link px-3 py-2 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
               data-en="Home"
               data-es="Inicio"
               >Home</a
             >
             <a
               href="#training"
-              class="nav-link text-white hover:text-red-500"
+              class="nav-link px-3 py-2 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
               data-en="Training"
               data-es="Entrenamiento"
               >Training</a
             >
             <a
               href="#services"
-              class="nav-link text-white hover:text-red-500"
+              class="nav-link px-3 py-2 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
               data-en="Services"
               data-es="Servicios"
               >Services</a
             >
             <a
               href="#about"
-              class="nav-link text-white hover:text-red-500"
+              class="nav-link px-3 py-2 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
               data-en="About"
               data-es="Sobre mí"
               >About</a
             >
             <a
               href="#pricing"
-              class="nav-link text-white hover:text-red-500"
+              class="nav-link px-3 py-2 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
               data-en="Pricing"
               data-es="Precios"
               >Pricing</a
             >
             <a
               href="#contact"
-              class="nav-link text-white hover:text-red-500"
+              class="nav-link px-3 py-2 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
               data-en="Contact"
               data-es="Contacto"
               >Contact</a
@@ -297,42 +327,42 @@
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
           <a
             href="#home"
-            class="block py-2 text-white hover:text-red-500"
+            class="block py-3 px-4 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
             data-en="Home"
             data-es="Inicio"
             >Home</a
           >
           <a
             href="#training"
-            class="block py-2 text-white hover:text-red-500"
+            class="block py-3 px-4 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
             data-en="Training"
             data-es="Entrenamiento"
             >Training</a
           >
           <a
             href="#services"
-            class="block py-2 text-white hover:text-red-500"
+            class="block py-3 px-4 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
             data-en="Services"
             data-es="Servicios"
             >Services</a
           >
           <a
             href="#about"
-            class="block py-2 text-white hover:text-red-500"
+            class="block py-3 px-4 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
             data-en="About"
             data-es="Sobre mí"
             >About</a
           >
           <a
             href="#pricing"
-            class="block py-2 text-white hover:text-red-500"
+            class="block py-3 px-4 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
             data-en="Pricing"
             data-es="Precios"
             >Pricing</a
           >
           <a
             href="#contact"
-            class="block py-2 text-white hover:text-red-500"
+            class="block py-3 px-4 text-white hover:text-red-500 font-medium rounded-lg transition-all duration-300 hover:bg-gray-800"
             data-en="Contact"
             data-es="Contacto"
             >Contact</a
@@ -789,7 +819,7 @@
                 <div class="flex items-center">
                   <i class="fas fa-check text-red-500 mr-3"></i>
                   <span data-en="Box Jump" data-es="Cajón pliométrico"
-                    >Box Juump</span
+                    >Box Jump</span
                   >
                 </div>
               </div>
@@ -883,194 +913,259 @@
     </section>
 
     <!-- About Section -->
-<section id="about" class="py-20 bg-black">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-      <span class="text-red-500" data-en="ABOUT" data-es="SOBRE">ABOUT</span>
-      <span class="text-white" data-en="ME" data-es="MÍ">ME</span>
-    </h2>
+    <section id="about" class="py-20 bg-black">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-red-500" data-en="ABOUT" data-es="SOBRE"
+            >ABOUT</span
+          >
+          <span class="text-white" data-en="ME" data-es="MÍ">ME</span>
+        </h2>
 
-    <div class="flex flex-col lg:flex-row items-center gap-12">
-      <div class="lg:w-1/2">
-        <div class="relative overflow-hidden rounded-lg shadow-2xl mb-6">
-          <img
-            src="https://picsum.photos/600/400?random=2"
-            alt="Personal Trainer demonstrating exercise"
-            class="w-full h-auto transition duration-500 hover:scale-105"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-        </div>
-        <div class="relative overflow-hidden rounded-lg shadow-2xl">
-          <img
-            src="https://picsum.photos/600/400?random=3"
-            alt="Personal Trainer working with client"
-            class="w-full h-auto transition duration-500 hover:scale-105"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-        </div>
-      </div>
-
-      <div class="lg:w-1/2">
-        <h3 class="text-2xl font-bold mb-4 text-red-500" data-en="Reconnecting with Natural Movement" data-es="Reconectando con el Movimiento Natural">
-          Reconnecting with Natural Movement
-        </h3>
-        <div class="mb-8">
-          <p class="text-gray-300 mb-4" data-en="I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health." data-es="Ofrezco una perspectiva única sobre salud y bienestar, moldeada por una trayectoria profesional que me ha llevado por la biología molecular, la ingeniería de software y ahora el entrenamiento físico y nutricional. En el camino, he vivido y trabajado en países de Europa, África, Asia, Oriente Medio y América del Norte, experiencias que me han dado una profunda apreciación de diferentes culturas, estilos de vida y formas de abordar la salud.">
-            I bring a unique perspective to health and wellness, shaped by a
-            career journey that has taken me through molecular biology,
-            software engineering, and now into fitness and nutrition
-            coaching. Along the way, I've lived and worked in countries
-            across Europe, Africa, Asia, the Middle East, and North
-            America—experiences that have given me a deep appreciation for
-            different cultures, lifestyles, and ways of approaching health.
-          </p>
-          <p class="text-gray-300" data-en="This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives." data-es="Esta diversa experiencia me enseñó a combinar la curiosidad científica con un enfoque práctico y realista. Ya sea en el laboratorio, el mundo tecnológico o el gimnasio, siempre me ha motivado el deseo de entender cómo funcionan las cosas y ayudar a las personas a aplicar ese conocimiento para mejorar sus vidas. Hoy, eso significa apoyar a los clientes en la construcción de hábitos más saludables, sentirse más fuertes en sus cuerpos y encontrar enfoques de fitness y nutrición que realmente se adapten a sus vidas.">
-            This diverse background taught me to combine scientific
-            curiosity with a practical, real-world approach. Whether in the
-            lab, the tech world, or the gym, I've always been driven by a
-            desire to understand how things work and to help people apply
-            that knowledge to improve their lives. Today, that means
-            supporting clients in building healthier habits, feeling
-            stronger in their bodies, and finding approaches to fitness and
-            nutrition that truly fit their lives.
-          </p>
-        </div>
-        <p class="text-gray-300 mb-6" data-en="I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop." data-es="Ayudo a las personas a reconectarse con sus cuerpos a través de un enfoque suave y personalizado del movimiento y el fitness. Mi entrenamiento combina prácticas de movimiento consciente con ejercicio funcional moderno, creando un espacio donde la fuerza, la flexibilidad y la facilidad se desarrollan naturalmente.">
-          I help people reconnect with their bodies through a gentle,
-          personalized approach to movement and fitness. My training blends
-          mindful movement practices with modern functional exercise,
-          creating a space where strength, flexibility, and ease naturally
-          develop.
-        </p>
-        <p class="text-gray-300 mb-6" data-en="I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations." data-es="Creo que el fitness debería ser de apoyo, no intimidante. Mis programas se centran en el movimiento con peso corporal, flujos inspirados en animales y trabajo energético consciente para ayudarte a desarrollar fuerza y movilidad a tu propio ritmo, sin la presión de entrenamientos extremos o expectativas poco realistas.">
-          I believe fitness should feel supportive—not intimidating. My
-          programs focus on bodyweight movement, animal-inspired flows, and
-          mindful energy work to help you build strength and mobility at
-          your own pace, without the pressure of extreme workouts or
-          unrealistic expectations.
-        </p>
-        <div class="mb-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
-          <h4 class="text-2xl font-bold mb-6 text-white border-b border-red-500 pb-2" data-en="Professional Qualifications" data-es="Certificaciones Profesionales">
-            Professional Qualifications
-          </h4>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- First Column -->
-            <div class="space-y-4">
-              <!-- NASM Certified Personal Trainer -->
-              <div class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition">
-                <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
-                  <img
-                    src="./docs/assets/images/NASM.gif"
-                    alt="NASM Certified Personal Trainer"
-                    class="h-8 w-auto"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white" data-en="Certified Personal Trainer" data-es="Entrenador Personal Certificado">
-                    Certified Personal Trainer
-                  </h5>
-                </div>
-              </div>
-
-              <!-- ACE Nutritional Specialist -->
-              <div class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition">
-                <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
-                  <img
-                    src="./docs/assets/images/ACE.svg"
-                    alt="ACE Nutritional Specialist"
-                    class="h-8 w-auto"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white" data-en="Nutritional Specialist" data-es="Especialista en Nutrición">
-                    Nutritional Specialist
-                  </h5>
-                </div>
-              </div>
-
-              <!-- ACE Functional Exercise Specialist -->
-              <div class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition">
-                <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
-                  <img
-                    src="./docs/assets/images/ACE.svg"
-                    alt="ACE Functional Exercise Specialist"
-                    class="h-8 w-auto"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white" data-en=" Functional Exercise Specialist" data-es="Especialista en Ejercicio Funcional ">
-                    Functional Exercise Specialist
-                  </h5>
-                </div>
-              </div>
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2">
+            <div class="relative overflow-hidden rounded-lg shadow-2xl mb-6">
+              <img
+                src="https://picsum.photos/600/400?random=2"
+                alt="Personal Trainer demonstrating exercise"
+                class="w-full h-auto transition duration-500 hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+              ></div>
             </div>
+            <div class="relative overflow-hidden rounded-lg shadow-2xl">
+              <img
+                src="https://picsum.photos/600/400?random=3"
+                alt="Personal Trainer working with client"
+                class="w-full h-auto transition duration-500 hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+              ></div>
+            </div>
+          </div>
 
-            <!-- Second Column -->
-            <div class="space-y-4">
-              <!-- ISSA Transformation Specialist -->
-              <div class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition">
-                <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
-                  <img
-                    src="./docs/assets/images/ISSA.gif"
-                    alt="ISSA Transformation Specialist"
-                    class="h-8 w-auto"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white" data-en="Transformation Specialist" data-es="Especialista en Transformación">
-                    Transformation Specialist
-                  </h5>
-                </div>
-              </div>
+          <div class="lg:w-1/2">
+            <h3
+              class="text-2xl font-bold mb-4 text-red-500"
+              data-en="Reconnecting with Natural Movement"
+              data-es="Reconectando con el Movimiento Natural"
+            >
+              Reconnecting with Natural Movement
+            </h3>
+            <div class="mb-8">
+              <p
+                class="text-gray-300 mb-4"
+                data-en="I bring a unique perspective to health and wellness, shaped by a career journey that has taken me through molecular biology, software engineering, and now into fitness and nutrition coaching. Along the way, I've lived and worked in countries across Europe, Africa, Asia, the Middle East, and North America—experiences that have given me a deep appreciation for different cultures, lifestyles, and ways of approaching health."
+                data-es="Ofrezco una perspectiva única sobre salud y bienestar, moldeada por una trayectoria profesional que me ha llevado por la biología molecular, la ingeniería de software y ahora el entrenamiento físico y nutricional. En el camino, he vivido y trabajado en países de Europa, África, Asia, Oriente Medio y América del Norte, experiencias que me han dado una profunda apreciación de diferentes culturas, estilos de vida y formas de abordar la salud."
+              >
+                I bring a unique perspective to health and wellness, shaped by a
+                career journey that has taken me through molecular biology,
+                software engineering, and now into fitness and nutrition
+                coaching. Along the way, I've lived and worked in countries
+                across Europe, Africa, Asia, the Middle East, and North
+                America—experiences that have given me a deep appreciation for
+                different cultures, lifestyles, and ways of approaching health.
+              </p>
+              <p
+                class="text-gray-300"
+                data-en="This diverse background taught me to combine scientific curiosity with a practical, real-world approach. Whether in the lab, the tech world, or the gym, I've always been driven by a desire to understand how things work and to help people apply that knowledge to improve their lives. Today, that means supporting clients in building healthier habits, feeling stronger in their bodies, and finding approaches to fitness and nutrition that truly fit their lives."
+                data-es="Esta diversa experiencia me enseñó a combinar la curiosidad científica con un enfoque práctico y realista. Ya sea en el laboratorio, el mundo tecnológico o el gimnasio, siempre me ha motivado el deseo de entender cómo funcionan las cosas y ayudar a las personas a aplicar ese conocimiento para mejorar sus vidas. Hoy, eso significa apoyar a los clientes en la construcción de hábitos más saludables, sentirse más fuertes en sus cuerpos y encontrar enfoques de fitness y nutrición que realmente se adapten a sus vidas."
+              >
+                This diverse background taught me to combine scientific
+                curiosity with a practical, real-world approach. Whether in the
+                lab, the tech world, or the gym, I've always been driven by a
+                desire to understand how things work and to help people apply
+                that knowledge to improve their lives. Today, that means
+                supporting clients in building healthier habits, feeling
+                stronger in their bodies, and finding approaches to fitness and
+                nutrition that truly fit their lives.
+              </p>
+            </div>
+            <p
+              class="text-gray-300 mb-6"
+              data-en="I help people reconnect with their bodies through a gentle, personalized approach to movement and fitness. My training blends mindful movement practices with modern functional exercise, creating a space where strength, flexibility, and ease naturally develop."
+              data-es="Ayudo a las personas a reconectarse con sus cuerpos a través de un enfoque suave y personalizado del movimiento y el fitness. Mi entrenamiento combina prácticas de movimiento consciente con ejercicio funcional moderno, creando un espacio donde la fuerza, la flexibilidad y la facilidad se desarrollan naturalmente."
+            >
+              I help people reconnect with their bodies through a gentle,
+              personalized approach to movement and fitness. My training blends
+              mindful movement practices with modern functional exercise,
+              creating a space where strength, flexibility, and ease naturally
+              develop.
+            </p>
+            <p
+              class="text-gray-300 mb-6"
+              data-en="I believe fitness should feel supportive—not intimidating. My programs focus on bodyweight movement, animal-inspired flows, and mindful energy work to help you build strength and mobility at your own pace, without the pressure of extreme workouts or unrealistic expectations."
+              data-es="Creo que el fitness debería ser de apoyo, no intimidante. Mis programas se centran en el movimiento con peso corporal, flujos inspirados en animales y trabajo energético consciente para ayudarte a desarrollar fuerza y movilidad a tu propio ritmo, sin la presión de entrenamientos extremos o expectativas poco realistas."
+            >
+              I believe fitness should feel supportive—not intimidating. My
+              programs focus on bodyweight movement, animal-inspired flows, and
+              mindful energy work to help you build strength and mobility at
+              your own pace, without the pressure of extreme workouts or
+              unrealistic expectations.
+            </p>
+            <div class="mb-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
+              <h4
+                class="text-2xl font-bold mb-6 text-white border-b border-red-500 pb-2"
+                data-en="Professional Qualifications"
+                data-es="Certificaciones Profesionales"
+              >
+                Professional Qualifications
+              </h4>
 
-              <!-- ISSA Health Coach -->
-              <div class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition">
-                <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
-                  <img
-                    src="./docs/assets/images/ISSA.gif"
-                    alt="ISSA Health Coach"
-                    class="h-8 w-auto"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white" data-en=" Health Coach" data-es="Entrenador de Salud ">
-                    Health Coach
-                  </h5>
-                </div>
-              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- First Column -->
+                <div class="space-y-4">
+                  <!-- NASM Certified Personal Trainer -->
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/NASM.gif"
+                        alt="NASM Certified Personal Trainer"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h5
+                        class="font-bold text-white"
+                        data-en="Certified Personal Trainer"
+                        data-es="Entrenador Personal Certificado"
+                      >
+                        Certified Personal Trainer
+                      </h5>
+                    </div>
+                  </div>
 
-              <!-- BSc Biology -->
-              <div class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition">
-                <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
-                  <img
-                    src="./docs/assets/images/UBC.svg"
-                    alt="BSc Biology"
-                    class="h-8 w-auto"
-                    loading="lazy"
-                  />
+                  <!-- ACE Nutritional Specialist -->
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ACE.svg"
+                        alt="ACE Nutritional Specialist"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h5
+                        class="font-bold text-white"
+                        data-en="Nutritional Specialist"
+                        data-es="Especialista en Nutrición"
+                      >
+                        Nutritional Specialist
+                      </h5>
+                    </div>
+                  </div>
+
+                  <!-- ACE Functional Exercise Specialist -->
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ACE.svg"
+                        alt="ACE Functional Exercise Specialist"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h5
+                        class="font-bold text-white"
+                        data-en=" Functional Exercise Specialist"
+                        data-es="Especialista en Ejercicio Funcional "
+                      >
+                        Functional Exercise Specialist
+                      </h5>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h5 class="font-bold text-white" data-en="Bachelor of Science - Biology" data-es="Licenciatura en Biología">
-                    Bachelor of Science - Biology
-                  </h5>
+
+                <!-- Second Column -->
+                <div class="space-y-4">
+                  <!-- ISSA Transformation Specialist -->
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ISSA.gif"
+                        alt="ISSA Transformation Specialist"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h5
+                        class="font-bold text-white"
+                        data-en="Transformation Specialist"
+                        data-es="Especialista en Transformación"
+                      >
+                        Transformation Specialist
+                      </h5>
+                    </div>
+                  </div>
+
+                  <!-- ISSA Health Coach -->
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/ISSA.gif"
+                        alt="ISSA Health Coach"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h5
+                        class="font-bold text-white"
+                        data-en=" Health Coach"
+                        data-es="Entrenador de Salud "
+                      >
+                        Health Coach
+                      </h5>
+                    </div>
+                  </div>
+
+                  <!-- BSc Biology -->
+                  <div
+                    class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                      <img
+                        src="./docs/assets/images/UBC.svg"
+                        alt="BSc Biology"
+                        class="h-8 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h5
+                        class="font-bold text-white"
+                        data-en="Bachelor of Science - Biology"
+                        data-es="Licenciatura en Biología"
+                      >
+                        Bachelor of Science - Biology
+                      </h5>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <section id="pricing" class="py-20 bg-gray-900">
       <div class="container mx-auto px-6">
