@@ -163,6 +163,7 @@
       .whatsapp-float i {
         margin-left: 2px; /* Slight visual adjustment for the icon */
       }
+
       .pricing-table {
         width: 100%;
         border-collapse: collapse;
@@ -225,6 +226,11 @@
         }
       }
 
+      .aspect-[4/3] {
+        aspect-ratio: 4/3;
+      }
+
+      /* Unified certification badge styling */
       .cert-badge {
         width: 48px;
         height: 48px;
@@ -240,6 +246,16 @@
         max-height: 32px;
         max-width: 100%;
         height: auto;
+        width: auto;
+      }
+
+      /* Image hover effects */
+      .transition {
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+          filter, backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
       }
     </style>
   </head>
@@ -1040,7 +1056,9 @@
                   <div
                     class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
                   >
-                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                    <div
+                      class="bg-white p-1.5 rounded mr-3 flex-shrink-0 cert-badge"
+                    >
                       <img
                         src="./docs/assets/images/NASM.gif"
                         alt="NASM Certified Personal Trainer"
@@ -1063,7 +1081,9 @@
                   <div
                     class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
                   >
-                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                    <div
+                      class="bg-white p-1.5 rounded mr-3 flex-shrink-0 cert-badge"
+                    >
                       <img
                         src="./docs/assets/images/ACE.svg"
                         alt="ACE Nutritional Specialist"
@@ -1086,7 +1106,9 @@
                   <div
                     class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
                   >
-                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                    <div
+                      class="bg-white p-1.5 rounded mr-3 flex-shrink-0 cert-badge"
+                    >
                       <img
                         src="./docs/assets/images/ACE.svg"
                         alt="ACE Functional Exercise Specialist"
@@ -1112,7 +1134,9 @@
                   <div
                     class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
                   >
-                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                    <div
+                      class="bg-white p-1.5 rounded mr-3 flex-shrink-0 cert-badge"
+                    >
                       <img
                         src="./docs/assets/images/ISSA.gif"
                         alt="ISSA Transformation Specialist"
@@ -1135,7 +1159,9 @@
                   <div
                     class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
                   >
-                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                    <div
+                      class="bg-white p-1.5 rounded mr-3 flex-shrink-0 cert-badge"
+                    >
                       <img
                         src="./docs/assets/images/ISSA.gif"
                         alt="ISSA Health Coach"
@@ -1158,7 +1184,9 @@
                   <div
                     class="flex items-start bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition"
                   >
-                    <div class="bg-white p-1.5 rounded mr-3 flex-shrink-0">
+                    <div
+                      class="bg-white p-1.5 rounded mr-3 flex-shrink-0 cert-badge"
+                    >
                       <img
                         src="./docs/assets/images/UBC.svg"
                         alt="BSc Biology"
@@ -1851,35 +1879,26 @@
             <span class="text-red-500" data-en="ALEX" data-es="ALEX">ALEX</span>
           </div>
 
-          <!-- Certification Badges - Now consistent sizing -->
-          <div class="w-full flex justify-center space-x-4 md:w-auto md:mt-0">
-            <div
-              class="bg-white p-1 rounded w-12 h-12 flex items-center justify-center"
-            >
+          <!-- Certification Badges -->
+          <div class="flex justify-center space-x-4">
+            <div class="cert-badge">
               <img
                 src="./docs/assets/images/NASM.gif"
                 alt="NASM Certified Personal Trainer"
-                class="h-8 w-auto max-w-full"
                 loading="lazy"
               />
             </div>
-            <div
-              class="bg-white p-1 rounded w-12 h-12 flex items-center justify-center"
-            >
+            <div class="cert-badge">
               <img
                 src="./docs/assets/images/ISSA.gif"
                 alt="ISSA Certified Trainer"
-                class="h-8 w-auto max-w-full"
                 loading="lazy"
               />
             </div>
-            <div
-              class="bg-white p-1 rounded w-12 h-12 flex items-center justify-center"
-            >
+            <div class="cert-badge">
               <img
                 src="./docs/assets/images/ACE.svg"
                 alt="ACE Certified Specialist"
-                class="h-8 w-auto max-w-full"
                 loading="lazy"
               />
             </div>
@@ -2055,6 +2074,39 @@
         // Initialize first slide
         showSlide(0);
       });
+
+      // Function to detect mobile devices
+      function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      // Function to update WhatsApp links
+      function updateWhatsAppLinks() {
+        const whatsappNumber = "34616877454";
+        const defaultMessage = encodeURIComponent(
+          "Hello! I'm interested in your training services."
+        );
+
+        if (isMobileDevice()) {
+          // Use WhatsApp app deep link for mobile
+          const mobileLink = `whatsapp://send?phone=${whatsappNumber}&text=${defaultMessage}`;
+          document.getElementById("whatsapp-float").href = mobileLink;
+          document.getElementById("whatsapp-contact").href = mobileLink;
+        } else {
+          // Use web WhatsApp for desktop
+          const webLink = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${defaultMessage}`;
+          document.getElementById("whatsapp-float").href = webLink;
+          document.getElementById("whatsapp-contact").href = webLink;
+        }
+      }
+
+      // Update links on page load
+      document.addEventListener("DOMContentLoaded", updateWhatsAppLinks);
+
+      // Optional: Update links if window size changes (e.g., tablet rotation)
+      window.addEventListener("resize", updateWhatsAppLinks);
     </script>
   </body>
 </html>
